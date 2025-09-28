@@ -8,6 +8,11 @@ import SideAssistant from '@/components/side-assistant';
 import { GeneratePersonalizedItineraryOutput } from '@/ai/flows/generate-personalized-itinerary';
 import ItineraryPreview from '@/components/itinerary-preview';
 import PackingList from '@/components/packing-list';
+import ProfileSnapshot from '@/components/profile-snapshot';
+import TravelTimeline from '@/components/travel-timeline';
+import Bookings from '@/components/bookings';
+import Extras from '@/components/extras';
+import Footer from '@/components/layout/footer';
 
 export default function Home() {
   const [itinerary, setItinerary] = useState<GeneratePersonalizedItineraryOutput | null>(null);
@@ -17,20 +22,37 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <div className="container mx-auto px-4 pb-8 md:pb-12">
-          <div className="relative z-10 -mt-12 md:-mt-24">
+        <div className="container mx-auto px-4 pb-12">
+          <div className="relative z-10 -mt-24">
             <QuickPlannerForm setItinerary={setItinerary} />
           </div>
-          {(itinerary) && (
-            <div className="mt-12 space-y-12">
-              <ItineraryPreview itinerary={itinerary.itinerary} />
-              <PackingList itinerary={itinerary.itinerary} />
+          
+          <div className="mt-12 space-y-16">
+            {itinerary ? (
+              <>
+                <ItineraryPreview itinerary={itinerary.itinerary} />
+                <PackingList itinerary={itinerary.itinerary} />
+              </>
+            ) : (
+              <ItineraryPreview itinerary="" />
+            )}
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-1">
+                <ProfileSnapshot />
+              </div>
+              <div className="lg:col-span-2">
+                <TravelTimeline />
+              </div>
             </div>
-          )}
+
+            <Bookings />
+            <Extras />
+          </div>
         </div>
       </main>
       <SideAssistant />
-      {/* Footer can be added back if needed */}
+      <Footer />
     </div>
   );
 }
