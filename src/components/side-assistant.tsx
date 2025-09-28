@@ -50,14 +50,14 @@ export default function SideAssistant() {
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild>
           <Button 
-            className="fixed bottom-10 right-10 h-14 w-14 rounded-full shadow-lg transition-transform hover:scale-105 bg-accent hover:bg-accent/90" 
+            className="fixed bottom-10 right-10 h-14 w-14 rounded-full shadow-lg transition-transform hover:scale-105 bg-accent hover:bg-accent/90 z-50" 
             size="icon"
             aria-label="AI Assistant"
           >
             <Bot className="h-7 w-7 text-accent-foreground" />
           </Button>
         </SheetTrigger>
-        <SheetContent className="flex flex-col bg-white/70 backdrop-blur-sm dark:bg-black/70">
+        <SheetContent className="flex flex-col bg-white/80 backdrop-blur-sm dark:bg-black/80 border-l-primary/20">
           <SheetHeader>
             <SheetTitle className="font-headline">WanderWise Assistant</SheetTitle>
           </SheetHeader>
