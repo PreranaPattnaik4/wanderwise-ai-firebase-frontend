@@ -105,7 +105,7 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
   );
 
   return (
-    <Card className="w-full max-w-4xl mx-auto shadow-md rounded-2xl border-accent/50">
+    <Card className="w-full max-w-4xl mx-auto shadow-md rounded-2xl border-accent/20 bg-background/60 backdrop-blur-md">
       <CardHeader className="text-center">
         <CardDescription>Quick Planner</CardDescription>
         <CardTitle className="font-headline text-3xl">Tell us about your trip</CardTitle>
