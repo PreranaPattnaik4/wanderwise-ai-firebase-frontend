@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -48,7 +49,7 @@ export default function Navbar() {
       );
     }
 
-    return <Button onClick={signIn} variant="default" className="rounded-2xl">Sign In</Button>;
+    return <Button onClick={signIn} variant="default" className="rounded-full">Sign In</Button>;
   };
   
   const NavLinks = ({ inSheet }: { inSheet?: boolean }) => (
@@ -69,7 +70,7 @@ export default function Navbar() {
   );
 
   return (
-    <header id="home" className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header id="home" className="fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <WanderwiseLogo className="h-6 w-auto text-foreground" />
