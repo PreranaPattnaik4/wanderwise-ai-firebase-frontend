@@ -1,3 +1,64 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "Hot air balloons over Cappadocia",
+      "imageUrl": "https://images.unsplash.com/photo-1507608443039-bfde4fbcd142?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxob3QlMjBhaXIlMjBiYWxsb29uc3xlbnwwfHx8fDE3NTkwNTkyODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hot air balloons"
+    },
+    {
+      "id": "past-trip",
+      "description": "Eiffel Tower in Paris",
+      "imageUrl": "https://images.unsplash.com/photo-1619794578892-cbdd3ff81c95?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZWlmZmVsJTIwdG93ZXJ8ZW58MHx8fHwxNzU4OTQwMDIzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "eiffel tower"
+    },
+    {
+      "id": "upcoming-trip",
+      "description": "Kyoto temple in Japan",
+      "imageUrl": "https://images.unsplash.com/photo-1711372722413-21663859c92b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8a3lvdG8lMjB0ZW1wbGV8ZW58MHx8fHwxNzU4OTUxNDk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "kyoto temple"
+    },
+    {
+      "id": "flight-booking",
+      "description": "View from an airplane window",
+      "imageUrl": "https://images.unsplash.com/photo-1603309040631-772df9922ef0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YWlycGxhbmUlMjB3aW5kb3d8ZW58MHx8fHwxNzU5MDQ3MzI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "airplane window"
+    },
+    {
+      "id": "hotel-booking",
+      "description": "Modern hotel lobby",
+      "imageUrl": "https://images.unsplash.com/photo-1637730826933-54287f79e1c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxob3RlbCUyMGxvYmJ5fGVufDB8fHx8MTc1OTA0ODMzNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hotel lobby"
+    },
+    {
+      "id": "activity-booking",
+      "description": "Kayaking on a calm lake",
+      "imageUrl": "https://images.unsplash.com/photo-1653593548856-23fdff295e2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxrYXlha2luZyUyMGxha2V8ZW58MHx8fHwxNzU4OTc0NjEyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "kayaking lake"
+    },
+    {
+      "id": "profile-avatar",
+      "description": "Portrait of a smiling person",
+      "imageUrl": "https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwcm9maWxlJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzU5MDQxMTEzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "profile portrait"
+    },
+    {
+      "id": "local-events",
+      "description": "Bustling street market",
+      "imageUrl": "https://images.unsplash.com/photo-1567763080747-35963b554bbd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzdHJlZXQlMjBtYXJrZXR8ZW58MHx8fHwxNzU5MDU5MjgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "street market"
+    },
+    {
+      "id": "weather-forecast",
+      "description": "Sun shining behind clouds",
+      "imageUrl": "https://images.unsplash.com/photo-1692576451105-5db2a280ce38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3ZWF0aGVyJTIwc3VufGVufDB8fHx8MTc1OTA1OTI4MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "weather sun"
+    },
+    {
+      "id": "special-offers",
+      "description": "A wrapped gift box",
+      "imageUrl": "https://images.unsplash.com/photo-1694481901573-a970f982ac5e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Z2lmdCUyMGJveHxlbnwwfHx8fDE3NTkwNTY3NjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gift box"
+    }
+  ]
 }
