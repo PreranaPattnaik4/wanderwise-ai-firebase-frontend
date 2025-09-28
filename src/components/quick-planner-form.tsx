@@ -50,9 +50,9 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
       description: '',
       budget: '',
       duration: '',
-      food: '',
+      food: 'No preference',
       interests: '',
-      language: '',
+      language: 'English',
     },
   });
 
@@ -95,7 +95,7 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
           key={option}
           type="button"
           variant={field.value === option ? 'default' : 'outline'}
-          className="rounded-full"
+          className="rounded-full transition-transform hover:scale-105"
           onClick={() => field.onChange(option)}
         >
           {option}
@@ -107,7 +107,10 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
   return (
     <Card className="w-full max-w-4xl mx-auto shadow-md rounded-2xl border-accent/20 bg-background/60 backdrop-blur-md">
       <CardHeader className="text-center">
-        <CardDescription>Quick Planner</CardDescription>
+        <CardDescription className="flex items-center justify-center gap-2">
+            <Sparkles className="w-4 h-4" />
+            Quick Planner
+        </CardDescription>
         <CardTitle className="font-headline text-3xl">Tell us about your trip</CardTitle>
       </CardHeader>
       <Form {...form}>
@@ -123,7 +126,7 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
                     <FormControl>
                       <div className="relative">
                         <Compass className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                        <Input placeholder="New York, USA" {...field} className="pl-10 rounded-2xl" />
+                        <Input placeholder="e.g. Bengaluru" {...field} className="pl-10 rounded-2xl" />
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -139,7 +142,7 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
                     <FormControl>
                       <div className="relative">
                         <Plane className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                        <Input placeholder="Paris, France" {...field} className="pl-10 rounded-2xl" />
+                        <Input placeholder="e.g. Goa or Bali" {...field} className="pl-10 rounded-2xl" />
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -182,9 +185,9 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
               name="description"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Describe your trip (optional)</FormLabel>
+                  <FormLabel>Describe your trip</FormLabel>
                   <FormControl>
-                    <Textarea placeholder="E.g., looking for a relaxing beach vacation with some historical sightseeing..." {...field} className="rounded-2xl" />
+                    <Textarea placeholder="Describe your trip (optional)" {...field} className="rounded-2xl" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -201,7 +204,7 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
                     <FormControl>
                        <div className="relative">
                         <Wallet className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                        <Input placeholder="$2000" {...field} className="pl-10 rounded-2xl" />
+                        <Input placeholder="$1500" {...field} className="pl-10 rounded-2xl" />
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -217,7 +220,7 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
                     <FormControl>
                        <div className="relative">
                         <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                        <Input placeholder="7 days" {...field} className="pl-10 rounded-2xl" />
+                        <Input placeholder="5d" {...field} className="pl-10 rounded-2xl" />
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -233,7 +236,7 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
                     <FormControl>
                       <div className="relative">
                         <Utensils className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                        <Input placeholder="Vegetarian, Italian" {...field} className="pl-10 rounded-2xl" />
+                        <Input placeholder="No preference" {...field} className="pl-10 rounded-2xl" />
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -276,7 +279,7 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
 
           </CardContent>
           <CardFooter className="flex justify-end">
-             <Button type="submit" disabled={isLoading} className="rounded-full px-8">
+             <Button type="submit" disabled={isLoading} className="rounded-full px-8 transition-transform hover:scale-105">
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -295,5 +298,3 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
     </Card>
   );
 }
-
-    
