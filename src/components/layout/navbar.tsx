@@ -77,26 +77,28 @@ export default function Navbar() {
         </Link>
 
         {isMobile ? (
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Toggle navigation menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right">
-                <div className="flex flex-col items-center justify-center h-full gap-8">
-                    <NavLinks inSheet />
-                </div>
-            </SheetContent>
-          </Sheet>
+          <div className="flex items-center gap-2">
+            {renderAuthButton()}
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Toggle navigation menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right">
+                  <div className="flex flex-col items-center justify-center h-full gap-8">
+                      <NavLinks inSheet />
+                  </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         ) : (
           <div className="flex items-center gap-8">
             <NavLinks />
             {renderAuthButton()}
           </div>
         )}
-         {isMobile && renderAuthButton()}
       </div>
     </header>
   );

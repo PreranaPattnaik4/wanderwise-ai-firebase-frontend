@@ -7,7 +7,7 @@ export function WanderwiseLogo(props: SVGProps<SVGSVGElement>) {
       <span className="font-headline text-xl font-bold">
         WanderWise
       </span>
-      <span className="text-xs font-semibold bg-gray-800 text-white px-2 py-0.5 rounded-full">
+      <span className="text-xs font-semibold bg-gray-900 text-white px-2 py-0.5 rounded-full">
         AI
       </span>
     </div>
