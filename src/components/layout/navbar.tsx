@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -49,18 +48,18 @@ export default function Navbar() {
       );
     }
 
-    return <Button onClick={signIn} variant="default" className="rounded-full">Sign In</Button>;
+    return <Button onClick={signIn} variant="outline" className="rounded-full">Sign in</Button>;
   };
   
   const NavLinks = ({ inSheet }: { inSheet?: boolean }) => (
-    <nav className={`flex items-center gap-4 ${inSheet ? 'flex-col' : ''}`}>
+    <nav className={`flex items-center gap-6 ${inSheet ? 'flex-col' : ''}`}>
       {navLinks.map((link) => (
         <Link
           key={link.label}
           href={link.href}
           onClick={() => setActiveLink(link.label)}
-          className={`text-sm font-medium transition-colors hover:text-primary ${
-            activeLink === link.label ? 'text-primary' : 'text-muted-foreground'
+          className={`text-sm font-medium transition-colors hover:text-primary-foreground ${
+            activeLink === link.label ? 'text-primary-foreground' : 'text-muted-foreground'
           }`}
         >
           {link.label}
@@ -70,10 +69,10 @@ export default function Navbar() {
   );
 
   return (
-    <header id="home" className="fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
+    <header id="home" className="absolute top-0 z-50 w-full bg-transparent">
+      <div className="container flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <WanderwiseLogo className="h-6 w-auto text-foreground" />
+          <WanderwiseLogo className="h-6 w-auto" />
         </Link>
 
         {isMobile ? (

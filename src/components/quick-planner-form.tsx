@@ -1,16 +1,15 @@
-
 "use client";
 
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Wallet, Calendar, Utensils, Heart, Languages, Sparkles, Loader2, Compass, Plane } from 'lucide-react';
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Wallet, Calendar, Utensils, Heart, Languages, Sparkles, Loader2, Compass, Plane, Mic } from 'lucide-react';
 import { generatePersonalizedItinerary, GeneratePersonalizedItineraryOutput } from '@/ai/flows/generate-personalized-itinerary';
 import { useToast } from '@/hooks/use-toast';
 
@@ -45,11 +44,11 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
     defaultValues: {
       from: '',
       to: '',
-      tripType: '',
-      flightOptions: '',
+      tripType: 'Leisure',
+      flightOptions: 'Economy',
       description: '',
-      budget: '',
-      duration: '',
+      budget: '$1500',
+      duration: '5d',
       food: 'No preference',
       interests: '',
       language: 'English',
@@ -105,28 +104,32 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
   );
 
   return (
-    <Card className="w-full max-w-4xl mx-auto shadow-md rounded-2xl border-accent/20 bg-background/60 backdrop-blur-md">
-      <CardHeader className="text-center">
-        <CardDescription className="flex items-center justify-center gap-2">
-            <Sparkles className="w-4 h-4" />
-            Quick Planner
-        </CardDescription>
-        <CardTitle className="font-headline text-3xl">Tell us about your trip</CardTitle>
+    <Card className="w-full max-w-5xl mx-auto shadow-xl rounded-2xl border-none bg-white/70 backdrop-blur-sm">
+      <CardHeader>
+        <CardTitle className="font-headline text-3xl font-bold">Tell us about your trip</CardTitle>
       </CardHeader>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <CardContent className="space-y-8">
+            <div>
+              <FormDescription className="flex items-center gap-2 font-semibold text-foreground">
+                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 1C5.22386 1 5 1.22386 5 1.5C5 1.77614 5.22386 2 5.5 2H9.5C9.77614 2 10 1.77614 10 1.5C10 1.22386 9.77614 1 9.5 1H5.5ZM3 4.5C3 4.22386 3.22386 4 3.5 4H11.5C11.7761 4 12 4.22386 12 4.5C12 4.77614 11.7761 5 11.5 5H3.5C3.22386 5 3 4.77614 3 4.5ZM3.5 7C3.22386 7 3 7.22386 3 7.5C3 7.77614 3.22386 8 3.5 8H11.5C11.7761 8 12 7.77614 12 7.5C12 7.22386 11.7761 7 11.5 7H3.5ZM5.5 10C5.22386 10 5 10.2239 5 10.5C5 10.7761 5.22386 11 5.5 11H9.5C9.77614 11 10 10.7761 10 10.5C10 10.2239 9.77614 10 9.5 10H5.5ZM2 13.5C2 13.2239 2.22386 13 2.5 13H12.5C12.7761 13 13 13.2239 13 13.5C13 13.7761 12.7761 14 12.5 14H2.5C2.22386 14 2 13.7761 2 13.5Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path></svg>
+                  Quick Planner
+              </FormDescription>
+              <p className="text-muted-foreground text-sm mt-1">Write where you want to go and your preferences. We'll suggest a plan.</p>
+            </div>
+            
             <div className="grid md:grid-cols-2 gap-4">
               <FormField
                 control={form.control}
                 name="from"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>From</FormLabel>
+                    <FormLabel className="text-muted-foreground">From</FormLabel>
                     <FormControl>
                       <div className="relative">
                         <Compass className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                        <Input placeholder="e.g. Bengaluru" {...field} className="pl-10 rounded-2xl" />
+                        <Input placeholder="e.g. Bengaluru" {...field} className="pl-10 rounded-lg bg-secondary border-none" />
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -138,11 +141,11 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
                 name="to"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>To</FormLabel>
+                    <FormLabel className="text-muted-foreground">To</FormLabel>
                     <FormControl>
                       <div className="relative">
                         <Plane className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                        <Input placeholder="e.g. Goa or Bali" {...field} className="pl-10 rounded-2xl" />
+                        <Input placeholder="e.g. Goa or Bali" {...field} className="pl-10 rounded-lg bg-secondary border-none" />
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -151,13 +154,13 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
               />
             </div>
 
-            <div className="space-y-4">
+            <div className="grid md:grid-cols-2 gap-8">
               <FormField
                 control={form.control}
                 name="tripType"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Trip type</FormLabel>
+                    <FormLabel className="text-muted-foreground">Type of trip</FormLabel>
                     <FormControl>
                       {renderTagSelector(field, tripTypes)}
                     </FormControl>
@@ -170,7 +173,7 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
                 name="flightOptions"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Flight options</FormLabel>
+                    <FormLabel className="text-muted-foreground">Flight options</FormLabel>
                     <FormControl>
                       {renderTagSelector(field, flightOptions)}
                     </FormControl>
@@ -185,26 +188,28 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
               name="description"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Describe your trip</FormLabel>
+                  <FormLabel className="text-muted-foreground">Describe your trip (optional)</FormLabel>
                   <FormControl>
-                    <Textarea placeholder="Describe your trip (optional)" {...field} className="rounded-2xl" />
+                    <div className="relative">
+                        <Textarea placeholder="e.g., Weekend getaway from Bengaluru to Goa next month, beach + nightlife, nonstop flights" {...field} className="rounded-lg bg-secondary border-none pr-10" />
+                        <Mic className="absolute right-3 top-3 h-4 w-4 text-muted-foreground" />
+                    </div>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <FormField
                 control={form.control}
                 name="budget"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Budget</FormLabel>
                     <FormControl>
                        <div className="relative">
                         <Wallet className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                        <Input placeholder="$1500" {...field} className="pl-10 rounded-2xl" />
+                        <Input {...field} className="pl-10 rounded-lg bg-secondary border-none" />
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -216,11 +221,10 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
                 name="duration"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Duration</FormLabel>
                     <FormControl>
                        <div className="relative">
                         <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                        <Input placeholder="5d" {...field} className="pl-10 rounded-2xl" />
+                        <Input {...field} className="pl-10 rounded-lg bg-secondary border-none" />
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -232,11 +236,10 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
                 name="food"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Food</FormLabel>
                     <FormControl>
                       <div className="relative">
                         <Utensils className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                        <Input placeholder="No preference" {...field} className="pl-10 rounded-2xl" />
+                        <Input {...field} className="pl-10 rounded-lg bg-secondary border-none" />
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -248,11 +251,10 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
                 name="interests"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Interests</FormLabel>
                     <FormControl>
                       <div className="relative">
                         <Heart className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                        <Input placeholder="Museums, hiking" {...field} className="pl-10 rounded-2xl" />
+                        <Input placeholder="Interests" {...field} className="pl-10 rounded-lg bg-secondary border-none" />
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -264,11 +266,10 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
                 name="language"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Language</FormLabel>
                     <FormControl>
                        <div className="relative">
                         <Languages className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                        <Input placeholder="English" {...field} className="pl-10 rounded-2xl" />
+                        <Input {...field} className="pl-10 rounded-lg bg-secondary border-none" />
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -279,7 +280,7 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
 
           </CardContent>
           <CardFooter className="flex justify-end">
-             <Button type="submit" disabled={isLoading} className="rounded-full px-8 transition-transform hover:scale-105">
+             <Button type="submit" disabled={isLoading} variant="default" className="rounded-full px-6 transition-transform hover:scale-105 bg-primary/80 hover:bg-primary text-primary-foreground font-semibold">
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

@@ -1,10 +1,9 @@
-
 "use client";
 
 import { useState } from "react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetFooter } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Send, User, Bot, Loader2 } from "lucide-react";
+import { Send, User, Bot, Loader2 } from "lucide-react";
 import { Input } from "./ui/input";
 import { ScrollArea } from "./ui/scroll-area";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
@@ -51,11 +50,11 @@ export default function SideAssistant() {
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild>
           <Button 
-            className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-md transition-transform hover:scale-105" 
+            className="fixed bottom-10 right-10 h-14 w-14 rounded-full shadow-lg transition-transform hover:scale-105 bg-accent hover:bg-accent/90" 
             size="icon"
             aria-label="AI Assistant"
           >
-            <MessageCircle className="h-7 w-7" />
+            <Bot className="h-7 w-7 text-accent-foreground" />
           </Button>
         </SheetTrigger>
         <SheetContent className="flex flex-col">
@@ -65,7 +64,7 @@ export default function SideAssistant() {
           <ScrollArea className="flex-1 my-4 pr-4">
             <div className="space-y-4">
                 <div className={cn("flex items-start gap-3")}>
-                    <Avatar className="h-8 w-8 border-2 border-accent">
+                    <Avatar className="h-8 w-8 border-2 border-primary">
                         <AvatarFallback><Bot size={20}/></AvatarFallback>
                     </Avatar>
                     <div className="rounded-lg bg-secondary p-3 text-sm">
@@ -75,7 +74,7 @@ export default function SideAssistant() {
               {messages.map((message, index) => (
                 <div key={index} className={cn("flex items-start gap-3", message.role === 'user' && "justify-end")}>
                   {message.role === 'assistant' && (
-                    <Avatar className="h-8 w-8 border-2 border-accent">
+                    <Avatar className="h-8 w-8 border-2 border-primary">
                         <AvatarFallback><Bot size={20}/></AvatarFallback>
                     </Avatar>
                   )}
@@ -92,7 +91,7 @@ export default function SideAssistant() {
               ))}
               {isLoading && (
                  <div className={cn("flex items-start gap-3")}>
-                    <Avatar className="h-8 w-8 border-2 border-accent">
+                    <Avatar className="h-8 w-8 border-2 border-primary">
                         <AvatarFallback><Bot size={20}/></AvatarFallback>
                     </Avatar>
                     <div className="rounded-lg bg-secondary p-3 text-sm">
@@ -122,4 +121,3 @@ export default function SideAssistant() {
     </>
   );
 }
-
