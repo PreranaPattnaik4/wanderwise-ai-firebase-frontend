@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "hero-background",
-      "description": "Hot air balloons over Cappadocia",
-      "imageUrl": "https://images.unsplash.com/photo-1507608443039-bfde4fbcd142?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxob3QlMjBhaXIlMjBiYWxsb29uc3xlbnwwfHx8fDE3NTkwNTkyODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "hot air balloons"
+      "description": "Person on a swing in a scenic landscape",
+      "imageUrl": "https://images.unsplash.com/photo-1530789253388-582c481c54b0?q=80&w=1600&auto=format&fit=crop",
+      "imageHint": "travel swing"
     },
     {
       "id": "past-trip",
