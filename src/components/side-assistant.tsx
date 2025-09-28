@@ -49,9 +49,12 @@ export default function SideAssistant() {
     <>
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild>
-          <Button className="fixed bottom-6 right-6 h-16 w-16 rounded-full shadow-lg" size="icon">
-            <MessageCircle className="h-8 w-8" />
-            <span className="sr-only">Open Travel Assistant</span>
+          <Button 
+            className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-lg transition-transform hover:scale-110" 
+            size="icon"
+            aria-label="AI Assistant"
+          >
+            <MessageCircle className="h-7 w-7" />
           </Button>
         </SheetTrigger>
         <SheetContent className="flex flex-col">
