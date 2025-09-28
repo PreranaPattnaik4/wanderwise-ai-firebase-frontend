@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -50,7 +51,7 @@ export default function SideAssistant() {
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild>
           <Button 
-            className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-lg transition-transform hover:scale-110" 
+            className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-md transition-transform hover:scale-105" 
             size="icon"
             aria-label="AI Assistant"
           >
@@ -121,3 +122,4 @@ export default function SideAssistant() {
     </>
   );
 }
+
