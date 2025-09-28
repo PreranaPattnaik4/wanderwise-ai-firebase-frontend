@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -10,6 +11,7 @@ import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useState } from "react";
+import { SignInModal } from "../sign-in-modal";
 
 const navLinks = [
   { href: "#home", label: "Home" },
@@ -19,9 +21,10 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-  const { user, loading, signIn, signOut } = useAuth();
+  const { user, loading, signOut } = useAuth();
   const isMobile = useIsMobile();
   const [activeLink, setActiveLink] = useState("Home");
+  const [isSignInModalOpen, setSignInModalOpen] = useState(false);
 
   const renderAuthButton = () => {
     if (loading) {
@@ -48,7 +51,14 @@ export default function Navbar() {
       );
     }
 
-    return <Button onClick={signIn} variant="outline" className="rounded-full">Sign in</Button>;
+    return (
+      <>
+        <Button onClick={() => setSignInModalOpen(true)} variant="outline" className="rounded-full">
+          Sign in
+        </Button>
+        <SignInModal isOpen={isSignInModalOpen} onOpenChange={setSignInModalOpen} />
+      </>
+    );
   };
   
   const NavLinks = ({ inSheet }: { inSheet?: boolean }) => (
@@ -58,8 +68,8 @@ export default function Navbar() {
           key={link.label}
           href={link.href}
           onClick={() => setActiveLink(link.label)}
-          className={`text-sm font-medium transition-colors hover:text-primary-foreground ${
-            activeLink === link.label ? 'text-primary-foreground' : 'text-muted-foreground'
+          className={`text-sm font-medium transition-colors hover:text-primary ${
+            activeLink === link.label ? 'text-primary' : 'text-muted-foreground'
           }`}
         >
           {link.label}
@@ -69,7 +79,7 @@ export default function Navbar() {
   );
 
   return (
-    <header id="home" className="absolute top-0 z-50 w-full bg-transparent">
+    <header id="home" className="sticky top-0 z-40 w-full border-b bg-white/80 backdrop-blur-sm">
       <div className="container flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <WanderwiseLogo className="h-6 w-auto" />
