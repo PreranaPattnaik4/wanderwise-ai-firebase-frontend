@@ -12,6 +12,7 @@ import Extras from '@/components/extras';
 import Footer from '@/components/layout/footer';
 import SideAssistant from '@/components/side-assistant';
 import { GeneratePersonalizedItineraryOutput } from '@/ai/flows/generate-personalized-itinerary';
+import PackingList from '@/components/packing-list';
 
 export default function Home() {
   const [itinerary, setItinerary] = useState<GeneratePersonalizedItineraryOutput | null>(null);
@@ -24,7 +25,12 @@ export default function Home() {
         <div className="container mx-auto px-4 py-8 md:py-12">
           <div className="space-y-12 md:space-y-24">
             <QuickPlannerForm setItinerary={setItinerary} />
-            {(itinerary) && <ItineraryPreview itinerary={itinerary.itinerary} />}
+            {(itinerary) && (
+              <>
+                <ItineraryPreview itinerary={itinerary.itinerary} />
+                <PackingList itinerary={itinerary.itinerary} />
+              </>
+            )}
             <TravelTimeline />
             <Bookings />
             <div className="grid gap-12 lg:grid-cols-3 lg:gap-8">
