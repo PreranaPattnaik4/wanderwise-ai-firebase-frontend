@@ -1,7 +1,8 @@
+
 "use client";
 
 import { useState } from 'react';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
@@ -9,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Wallet, Calendar, Utensils, Heart, Languages, Sparkles, Loader2, Compass, Plane, Briefcase, Users, HeartPulse } from 'lucide-react';
+import { Wallet, Calendar, Utensils, Heart, Languages, Sparkles, Loader2, Compass, Plane } from 'lucide-react';
 import { generatePersonalizedItinerary, GeneratePersonalizedItineraryOutput } from '@/ai/flows/generate-personalized-itinerary';
 import { useToast } from '@/hooks/use-toast';
 
@@ -94,7 +95,7 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
           key={option}
           type="button"
           variant={field.value === option ? 'default' : 'outline'}
-          className="rounded-2xl"
+          className="rounded-full"
           onClick={() => field.onChange(option)}
         >
           {option}
@@ -275,7 +276,7 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
 
           </CardContent>
           <CardFooter className="flex justify-end">
-             <Button type="submit" disabled={isLoading} className="rounded-2xl">
+             <Button type="submit" disabled={isLoading} className="rounded-full px-8">
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -294,3 +295,5 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
     </Card>
   );
 }
+
+    
