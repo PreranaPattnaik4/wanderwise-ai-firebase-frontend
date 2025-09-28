@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -22,7 +23,7 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <div className="container mx-auto px-4 py-8 md:py-12">
+        <div className="container mx-auto px-4 py-8 md:py-12 -mt-24 md:-mt-32 relative z-10">
           <div className="space-y-12 md:space-y-24">
             <QuickPlannerForm setItinerary={setItinerary} />
             {(itinerary) && (
