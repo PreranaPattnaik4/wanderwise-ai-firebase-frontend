@@ -11,6 +11,7 @@ import { generatePersonalizedItinerary, GeneratePersonalizedItineraryOutput } fr
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
+import { ScrollArea } from './ui/scroll-area';
 
 const tripTypes = [
   { key: "leisure", label: "Leisure" },
@@ -292,33 +293,35 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
               <PopoverTrigger asChild>
                 <Button variant="outline" className="rounded-full text-xs justify-start gap-2"><Settings2 className="size-4 text-muted-foreground" /> Interests</Button>
               </PopoverTrigger>
-              <PopoverContent align="start" className="w-80">
-                <div className="text-xs font-semibold mb-2">Interests</div>
-                <div className="grid gap-3">
-                  {interests.map((it) => {
-                    const choices = interestChoices[it.key] || {};
-                    const selected = Object.values(choices).filter(Boolean).length;
-                    return (
-                      <div key={it.key} className="rounded-md border border-border p-2">
-                        <div className="flex items-center justify-between">
-                          <label className="inline-flex items-center gap-2 text-sm">
-                            <Checkbox checked={!!interestActive[it.key]} onCheckedChange={() => setInterestActive((s) => ({ ...s, [it.key]: !s[it.key] }))} />
-                            <span className="font-medium">{it.label}</span>
-                          </label>
-                          <span className="text-xs text-foreground/70">{selected ? `${selected} selected` : ""}</span>
-                        </div>
-                        <div className="mt-2 grid grid-cols-2 gap-2">
-                          {Object.keys(choices).map((opt) => (
-                            <label key={opt} className="flex items-center gap-2 text-xs">
-                              <Checkbox checked={!!interestChoices[it.key][opt]} onCheckedChange={(v) => setInterestChoices((prev) => ({ ...prev, [it.key]: { ...prev[it.key], [opt]: !!v } }))} />
-                              <span>{opt}</span>
+              <PopoverContent align="start" className="w-[600px] rounded-2xl bg-white/70 dark:bg-black/70 backdrop-blur-sm border-white/20">
+                <div className="text-xs font-semibold mb-2 p-4 pb-0">Interests</div>
+                <ScrollArea className="h-72">
+                  <div className="grid grid-cols-2 gap-4 p-4">
+                    {interests.map((it) => {
+                      const choices = interestChoices[it.key] || {};
+                      const selected = Object.values(choices).filter(Boolean).length;
+                      return (
+                        <div key={it.key} className="rounded-md border border-border/50 p-3 bg-background/50">
+                          <div className="flex items-center justify-between">
+                            <label className="inline-flex items-center gap-2 text-sm">
+                              <Checkbox checked={!!interestActive[it.key]} onCheckedChange={() => setInterestActive((s) => ({ ...s, [it.key]: !s[it.key] }))} />
+                              <span className="font-medium">{it.label}</span>
                             </label>
-                          ))}
+                            <span className="text-xs text-foreground/70">{selected ? `${selected} selected` : ""}</span>
+                          </div>
+                          <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2">
+                            {Object.keys(choices).map((opt) => (
+                              <label key={opt} className="flex items-center gap-2 text-xs">
+                                <Checkbox checked={!!interestChoices[it.key][opt]} onCheckedChange={(v) => setInterestChoices((prev) => ({ ...prev, [it.key]: { ...prev[it.key], [opt]: !!v } }))} />
+                                <span>{opt}</span>
+                              </label>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
-                </div>
+                      );
+                    })}
+                  </div>
+                </ScrollArea>
               </PopoverContent>
             </Popover>
           </div>
@@ -347,4 +350,3 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
     </div>
   );
 }
-
