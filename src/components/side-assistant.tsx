@@ -80,12 +80,12 @@ export default function SideAssistant() {
         {/* Transparent glass popup */}
         <SheetContent
           className="flex flex-col border-l border-white/10 
-                     bg-white/10 backdrop-blur-3xl 
+                     bg-transparent backdrop-blur-xl 
                      shadow-[0_8px_32px_0_rgba(31,38,135,0.12)] 
                      text-white"
           style={{
             backgroundImage:
-              "linear-gradient(to bottom, rgba(164,193,179,0.08), rgba(212,211,188,0.04))",
+              "linear-gradient(to bottom, rgba(164,193,179,0.06), rgba(212,211,188,0.03))",
           }}
         >
           {/* Header */}
@@ -106,7 +106,7 @@ export default function SideAssistant() {
                     <Bot size={20} />
                   </AvatarFallback>
                 </Avatar>
-                <div className="rounded-lg bg-white/15 backdrop-blur-md shadow-inner p-3 text-sm text-white/90">
+                <div className="rounded-lg bg-white/10 backdrop-blur-md shadow-inner p-3 text-sm text-white/90">
                   <p>Hello 👋 Ask me about your trip or travel plans!</p>
                 </div>
               </div>
@@ -132,7 +132,7 @@ export default function SideAssistant() {
                       "max-w-[80%] rounded-xl p-3 text-sm shadow-md",
                       message.role === "user"
                         ? "bg-gradient-to-r from-sky-500 to-violet-500 text-white"
-                        : "bg-white/15 backdrop-blur-md text-white/90"
+                        : "bg-white/10 backdrop-blur-md text-white/90"
                     )}
                   >
                     <p>{message.content}</p>
