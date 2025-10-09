@@ -110,7 +110,7 @@ export function SignInModal({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-xs rounded-2xl bg-white/70 backdrop-blur-sm dark:bg-black/70 border-white/20">
+      <DialogContent className="sm:max-w-xs rounded-2xl bg-background/80 backdrop-blur-sm dark:bg-black/70 border-white/20">
         <DialogHeader className="items-center text-center">
             <WanderwiseLogo className="h-6 w-auto"/>
             <DialogTitle className="text-lg font-bold">Welcome back</DialogTitle>
@@ -190,5 +190,7 @@ export function SignInModal({ isOpen, onOpenChange }: { isOpen: boolean; onOpenC
     </Dialog>
   );
 }
+
+    
 
     
