@@ -59,7 +59,12 @@ export default function SideAssistant() {
             <Bot className="h-8 w-8" />
           </Button>
         </SheetTrigger>
-        <SheetContent className="flex flex-col bg-white/10 backdrop-blur-lg border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
+        <SheetContent 
+            className="flex flex-col bg-white/5 backdrop-blur-2xl border-white/15 shadow-[0_8px_32px_0_rgba(31,38,135,0.15)]"
+            style={{
+                backgroundImage: 'linear-gradient(to bottom, rgba(164,193,179,0.06), rgba(212,211,188,0.03))'
+            }}
+        >
           <SheetHeader className="text-center">
             <SheetTitle className="font-headline text-lg relative text-foreground">
                 WanderWise AI Assistant
@@ -72,7 +77,7 @@ export default function SideAssistant() {
                     <Avatar className="h-8 w-8 border-2 border-primary">
                         <AvatarFallback className="bg-transparent"><Bot size={20} className="text-primary"/></AvatarFallback>
                     </Avatar>
-                    <div className="rounded-lg bg-white/20 p-3 text-sm">
+                    <div className="rounded-lg bg-white/10 p-3 text-sm">
                         <p>Hello 👋 Ask me about your trip or travel plans!</p>
                     </div>
                 </div>
@@ -83,7 +88,7 @@ export default function SideAssistant() {
                         <AvatarFallback className="bg-transparent"><Bot size={20} className="text-primary"/></AvatarFallback>
                     </Avatar>
                   )}
-                  <div className={cn("max-w-[80%] rounded-xl p-3 text-sm", message.role === 'user' ? 'bg-gradient-to-r from-sky-500 to-violet-500 text-white' : 'bg-white/20')}>
+                  <div className={cn("max-w-[80%] rounded-xl p-3 text-sm", message.role === 'user' ? 'bg-gradient-to-r from-sky-500 to-violet-500 text-white' : 'bg-white/10')}>
                     <p>{message.content}</p>
                   </div>
                    {message.role === 'user' && (
@@ -99,7 +104,7 @@ export default function SideAssistant() {
                     <Avatar className="h-8 w-8 border-2 border-primary">
                         <AvatarFallback className="bg-transparent"><Bot size={20} className="text-primary"/></AvatarFallback>
                     </Avatar>
-                    <div className="rounded-lg bg-white/20 p-3 text-sm">
+                    <div className="rounded-lg bg-white/10 p-3 text-sm">
                         <Loader2 className="h-5 w-5 animate-spin text-foreground"/>
                     </div>
                 </div>
