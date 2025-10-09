@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -15,7 +15,7 @@ interface FeatureModalProps {
   feature: {
     icon: React.ElementType;
     title: string;
-    flow?: (input: { request: string }) => Promise<{ response: string }>;
+    flow?: (input: { request: string }) => Promise<{ response:string }>;
     placeholder?: string;
   };
 }
@@ -26,12 +26,27 @@ export default function FeatureModal({ isOpen, onClose, feature }: FeatureModalP
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = async () => {
-    if (!input.trim() || !feature.flow) return;
+  useEffect(() => {
+    // Reset state when the modal is opened for a new feature
+    if (isOpen) {
+      setInput('');
+      setOutput('');
+      setIsLoading(false);
+    }
+  }, [isOpen, feature]);
+
+  const handleSubmit = async (requestInput?: string) => {
+    const currentInput = requestInput || input;
+    if (!currentInput.trim() || !feature.flow) return;
+
+    if (!requestInput) {
+        setInput(currentInput);
+    }
+
     setIsLoading(true);
     setOutput('');
     try {
-      const result = await feature.flow({ request: input });
+      const result = await feature.flow({ request: currentInput });
       setOutput(result.response);
     } catch (error) {
       console.error(`Error with ${feature.title}:`, error);
@@ -72,6 +87,8 @@ export default function FeatureModal({ isOpen, onClose, feature }: FeatureModalP
     }
   };
 
+  const isSafetyFeature = feature.title === 'Travel Safety & Alerts';
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-md rounded-2xl">
@@ -87,6 +104,13 @@ export default function FeatureModal({ isOpen, onClose, feature }: FeatureModalP
           </DialogDescription>
         </DialogHeader>
         <div className="space-y-4">
+          {isSafetyFeature && (
+              <div className="grid gap-2 sm:grid-cols-3">
+                <Button variant="outline" size="sm" onClick={() => handleSubmit('Hospitals Nearby')}>Hospitals</Button>
+                <Button variant="outline" size="sm" onClick={() => handleSubmit('Embassies Nearby')}>Embassies</Button>
+                <Button variant="outline" size="sm" onClick={() => handleSubmit('Police Stations Nearby')}>Police</Button>
+              </div>
+          )}
           <Input
             placeholder={feature.placeholder}
             value={input}
@@ -94,13 +118,13 @@ export default function FeatureModal({ isOpen, onClose, feature }: FeatureModalP
             onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
             disabled={isLoading}
           />
-          <Button onClick={handleSubmit} disabled={isLoading} className="w-full">
+          <Button onClick={() => handleSubmit()} disabled={isLoading} className="w-full">
             {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : 'Get Response'}
           </Button>
           {output && (
             <Card>
               <CardContent className="p-4 space-y-3">
-                <p className="text-sm text-foreground/90">{output}</p>
+                <p className="text-sm text-foreground/90 whitespace-pre-line">{output}</p>
                 <div className="flex gap-2">
                   <Button variant="outline" size="sm" onClick={handleDownload}>
                     <Download className="mr-2 h-4 w-4" /> Download
