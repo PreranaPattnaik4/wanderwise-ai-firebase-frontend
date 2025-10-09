@@ -4,6 +4,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { Sparkles, Bot, PlaneTakeoff, CalendarClock } from "lucide-react";
+import Image from "next/image";
 
 const features = [
     {
@@ -36,42 +37,33 @@ export default function TripInfo() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="grid md:grid-cols-2 gap-12 items-center"
+        className="text-center"
       >
-        <div className="bg-secondary/30 rounded-2xl p-8">
-          <h2 className="text-3xl font-headline font-bold mb-4">Everything you need for planning your trip</h2>
-          <p className="text-muted-foreground mb-6">Adjust your itinerary as needed</p>
-          <p className="text-foreground/80">
-            Seamlessly manage your itinerary all in one page with WanderWise AI — from reordering your plans, introducing new destinations, or removing plans as needed.
-          </p>
+        <div className="flex justify-center mb-6">
+          <Image src="/wanderwise-logo-camera.png" alt="WanderWise AI" width={150} height={150} />
         </div>
+        <h2 className="text-3xl font-headline font-bold mb-4">Everything you need for planning your trip</h2>
+        <p className="max-w-3xl mx-auto text-muted-foreground mb-12">
+          Seamlessly manage your itinerary all in one page with WanderWise AI — from reordering your plans, introducing new destinations, or removing plans as needed.
+        </p>
         
-        <div>
-          <Card className="rounded-2xl shadow-lg border-border/80 bg-card/80">
-            <CardContent className="p-6">
-              <h4 className="font-semibold text-lg mb-4">What WanderWise AI can do</h4>
-              <div className="space-y-4">
-                {features.map((feature, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="flex items-start gap-4"
-                  >
-                    <div className="p-2 bg-accent/20 rounded-full">
-                        <feature.icon className="w-5 h-5 text-accent" />
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+                <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="text-center"
+                >
+                    <div className="inline-block p-4 bg-accent/20 rounded-full mb-4">
+                        <feature.icon className="w-6 h-6 text-accent" />
                     </div>
-                    <div>
-                      <p className="font-medium">{feature.title}</p>
-                      <p className="text-sm text-muted-foreground">{feature.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+                    <h3 className="font-semibold text-lg mb-2">{feature.title}</h3>
+                    <p className="text-sm text-muted-foreground">{feature.description}</p>
+                </motion.div>
+            ))}
         </div>
       </motion.div>
       <div className="my-16 h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
