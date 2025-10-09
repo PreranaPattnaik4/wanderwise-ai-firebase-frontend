@@ -5,6 +5,8 @@ import { useEffect, useRef, useState } from "react";
 import { Bot, Loader2, Send } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { answerTravelQuestion } from "@/ai/flows/answer-travel-questions-chatbot";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+
 
 interface Msg {
   id: string;
@@ -61,16 +63,25 @@ export default function SideAssistant() {
 
   return (
     <>
-      <button
-        onClick={() => setOpen(true)}
-        aria-label="Open AI Assistant"
-        className="fixed bottom-6 right-6 z-50 size-12 rounded-full grid place-items-center text-primary-foreground shadow-lg bg-primary hover:bg-primary/90 active:scale-95 transition-transform"
-      >
-        <div className="relative">
-          <Bot className="h-6 w-6 drop-shadow-[0_0_12px_rgba(255,255,255,0.5)]" />
-          <span className="absolute inset-0 rounded-full animate-[pulse_2s_ease-in-out_infinite] bg-white/20 blur-md" />
-        </div>
-      </button>
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <button
+              onClick={() => setOpen(true)}
+              aria-label="Open AI Assistant"
+              className="fixed bottom-6 right-6 z-50 size-12 rounded-full grid place-items-center text-primary-foreground shadow-lg bg-primary hover:bg-primary/90 active:scale-95 transition-transform"
+            >
+              <div className="relative">
+                <Bot className="h-6 w-6 drop-shadow-[0_0_12px_rgba(255,255,255,0.5)]" />
+                <span className="absolute inset-0 rounded-full animate-[pulse_2s_ease-in-out_infinite] bg-white/20 blur-md" />
+              </div>
+            </button>
+          </TooltipTrigger>
+          <TooltipContent side="left">
+            <p>💬 Ask AI</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
 
       <AnimatePresence>
         {open && (
