@@ -12,20 +12,31 @@ import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useState } from "react";
 import { SignInModal } from "../sign-in-modal";
+import { useRouter } from "next/navigation";
 
 const navLinks = [
   { href: "/#home", label: "Home" },
   { href: "/itinerary", label: "Itinerary" },
   { href: "/#bookings", label: "Bookings" },
-  { href: "/profile", label: "Profile" },
   { href: "/guides", label: "Guides" },
+  { href: "/profile", label: "Profile" },
 ];
 
 export default function Navbar() {
   const { user, loading, signOut } = useAuth();
+  const router = useRouter();
   const isMobile = useIsMobile();
   const [activeLink, setActiveLink] = useState("Home");
   const [isSignInModalOpen, setSignInModalOpen] = useState(false);
+
+  const handleProfileClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!user) {
+      e.preventDefault();
+      setSignInModalOpen(true);
+    } else {
+      router.push('/profile');
+    }
+  };
 
   const renderAuthButton = () => {
     if (loading) {
@@ -71,7 +82,12 @@ export default function Navbar() {
         <Link
           key={link.label}
           href={link.href}
-          onClick={() => setActiveLink(link.label)}
+          onClick={(e) => {
+            setActiveLink(link.label);
+            if (link.label === 'Profile') {
+              handleProfileClick(e);
+            }
+          }}
           className={`text-sm font-medium transition-colors hover:text-primary ${
             activeLink === link.label ? 'text-primary' : 'text-muted-foreground'
           }`}
