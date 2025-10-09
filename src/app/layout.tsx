@@ -2,7 +2,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { AuthProvider } from '@/components/auth-provider';
-import { Toaster } from '@/components/ui/toaster';
+import { Toaster as OldToaster } from '@/components/ui/toaster';
+import { Toaster } from 'sonner';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
@@ -25,7 +26,8 @@ export default function RootLayout({
       <body className={cn("font-body antialiased", "min-h-screen bg-background font-sans")} suppressHydrationWarning>
         <AuthProvider>
           {children}
-          <Toaster />
+          <OldToaster />
+          <Toaster richColors />
         </AuthProvider>
       </body>
     </html>
