@@ -61,10 +61,12 @@ export default function TripInfo() {
         )}
         
         <div className="w-full max-w-4xl text-center">
-            <h2 className="text-3xl font-headline font-bold mb-4">Everything you need for planning your trip</h2>
-            <p className="max-w-3xl mx-auto text-muted-foreground mb-12">
-              Seamlessly manage your itinerary all in one page with WanderWise AI — from reordering your plans, introducing new destinations, or removing plans as needed.
-            </p>
+            <div className="bg-primary/20 text-primary-foreground p-8 rounded-2xl mb-12">
+                <h2 className="text-3xl font-headline font-bold mb-4">Everything you need for planning your trip</h2>
+                <p className="max-w-3xl mx-auto text-primary-foreground/80">
+                Seamlessly manage your itinerary all in one page with WanderWise AI — from reordering your plans, introducing new destinations, or removing plans as needed.
+                </p>
+            </div>
             
             <ul className="grid md:grid-cols-2 gap-x-8 gap-y-10 text-left">
                 {features.map((feature, index) => (
@@ -91,4 +93,3 @@ export default function TripInfo() {
     </section>
   );
 }
-
