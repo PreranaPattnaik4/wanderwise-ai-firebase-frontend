@@ -93,7 +93,7 @@ export default function SideAssistant() {
               exit={{ opacity: 0 }}
               onClick={() => setOpen(false)}
             />
-            <motion.div
+            <motion.aside
               className="fixed right-0 top-0 bottom-0 z-50 w-full max-w-md bg-white/10 text-foreground border-l border-white/20 shadow-2xl flex flex-col backdrop-blur-2xl"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
@@ -141,7 +141,7 @@ export default function SideAssistant() {
                   <Send className="size-4" />
                 </button>
               </div>
-            </motion.div>
+            </motion.aside>
           </>
         )}
       </AnimatePresence>
