@@ -26,7 +26,8 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <div id="onboarding" className="container mx-auto px-4 pb-12 pt-16">
-          <div className="z-10">
+          <div className="z-10 text-center">
+            <h2 className="text-3xl font-headline font-bold mb-4">Where are you headed? Let’s craft your perfect plan!</h2>
             <QuickPlannerForm setItinerary={setItinerary} />
           </div>
           
