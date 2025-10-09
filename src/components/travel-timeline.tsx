@@ -2,6 +2,7 @@
 "use client";
 
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 interface Node {
   phase: string; // e.g., Day 1
@@ -18,8 +19,15 @@ const nodes: Node[] = [
 ];
 
 export default function TravelTimeline() {
+  const router = useRouter();
   const finalize = () => {
-    toast.success("Plan finalized", { description: "Agentic AI itinerary confirmed. You can still tweak anytime." });
+    toast.success("Plan finalized", { 
+      description: "Agentic AI itinerary confirmed. Redirecting to your personalized itinerary...",
+      duration: 2000,
+     });
+    setTimeout(() => {
+      router.push('/itinerary');
+    }, 1000);
   };
 
   return (
@@ -65,7 +73,7 @@ export default function TravelTimeline() {
       <div className="mt-8 flex justify-center">
         <button
           onClick={finalize}
-          className="relative inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white bg-gradient-to-r from-sky-500 to-violet-500 shadow-[0_0_30px_rgba(99,102,241,0.45)] hover:shadow-[0_0_40px_rgba(56,189,248,0.55)] transition active:scale-95"
+          className="relative inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-background bg-foreground shadow-lg hover:bg-foreground/90 transition active:scale-95"
         >
           Finalize Plan ✨
           <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
