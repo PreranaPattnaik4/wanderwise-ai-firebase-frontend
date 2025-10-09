@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
@@ -38,9 +39,6 @@ export default function TripInfo() {
         viewport={{ once: true }}
         className="text-center"
       >
-        <div className="flex justify-center mb-6">
-          <Image src="/wanderwise-logo-camera.png" alt="WanderWise AI" width={150} height={150} />
-        </div>
         <h2 className="text-3xl font-headline font-bold mb-4">Everything you need for planning your trip</h2>
         <p className="max-w-3xl mx-auto text-muted-foreground mb-12">
           Seamlessly manage your itinerary all in one page with WanderWise AI — from reordering your plans, introducing new destinations, or removing plans as needed.
