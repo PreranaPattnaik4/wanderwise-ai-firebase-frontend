@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -57,7 +58,7 @@ export default function SideAssistant() {
             <Bot className="h-7 w-7 text-accent-foreground" />
           </Button>
         </SheetTrigger>
-        <SheetContent className="flex flex-col bg-white/80 backdrop-blur-sm dark:bg-black/80 border-l-primary/20">
+        <SheetContent className="flex flex-col bg-white/70 backdrop-blur-sm dark:bg-black/70 border-l-primary/20">
           <SheetHeader>
             <SheetTitle className="font-headline">WanderWise Assistant</SheetTitle>
           </SheetHeader>
