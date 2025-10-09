@@ -7,7 +7,6 @@ import Hero from '@/components/wanderwise/Hero';
 import QuickPlannerForm from '@/components/quick-planner-form';
 import SideAssistant from '@/components/side-assistant';
 import { GeneratePersonalizedItineraryOutput } from '@/ai/flows/generate-personalized-itinerary';
-import ItineraryPreview from '@/components/itinerary-preview';
 import PackingList from '@/components/packing-list';
 import TravelTimeline from '@/components/travel-timeline';
 import Bookings from '@/components/bookings';
@@ -28,13 +27,10 @@ export default function Home() {
           </div>
           
           <div className="mt-12 space-y-16">
-            {itinerary ? (
+            {itinerary && (
               <>
-                <ItineraryPreview itinerary={itinerary.itinerary} />
                 <PackingList itinerary={itinerary.itinerary} />
               </>
-            ) : (
-              <ItineraryPreview itinerary="" />
             )}
 
             <div className="lg:col-span-2">
