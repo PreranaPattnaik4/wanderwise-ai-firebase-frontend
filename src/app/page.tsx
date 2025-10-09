@@ -3,7 +3,7 @@
 
 import { useState } from 'react';
 import Navbar from '@/components/layout/navbar';
-import Hero from '@/components/hero';
+import Hero from '@/components/wanderwise/Hero';
 import QuickPlannerForm from '@/components/quick-planner-form';
 import SideAssistant from '@/components/side-assistant';
 import { GeneratePersonalizedItineraryOutput } from '@/ai/flows/generate-personalized-itinerary';
@@ -23,7 +23,7 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <div className="container mx-auto px-4 pb-12">
+        <div id="onboarding" className="container mx-auto px-4 pb-12">
           <div className="relative z-10 -mt-24">
             <QuickPlannerForm setItinerary={setItinerary} />
           </div>
