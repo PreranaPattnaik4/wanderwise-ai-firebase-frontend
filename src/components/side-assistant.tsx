@@ -94,11 +94,12 @@ export default function SideAssistant() {
               onClick={() => setOpen(false)}
             />
             <motion.div
-              className="fixed bottom-20 right-6 z-50 w-[90vw] max-w-md h-[70vh] max-h-[600px] bg-white/10 backdrop-blur-2xl text-foreground border border-white/20 shadow-[0_0_40px_rgba(0,0,0,0.25)] rounded-3xl flex flex-col"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.2 }}
+              className="fixed right-0 top-0 bottom-0 z-50 w-full max-w-md bg-white/10 backdrop-blur-2xl text-foreground border-l border-white/20 shadow-[0_0_40px_rgba(0,0,0,0.25)] flex flex-col md:rounded-l-3xl 
+                         sm:h-[90dvh] sm:bottom-4 sm:top-auto sm:right-4 sm:rounded-3xl"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', stiffness: 260, damping: 30 }}
             >
               <header className="px-5 py-4 border-b border-white/10 flex items-center justify-between">
                 <div className="font-headline text-lg text-primary">WanderWise AI Assistant</div>
