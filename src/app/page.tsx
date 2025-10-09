@@ -22,7 +22,6 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <Bookings />
         <div id="onboarding" className="container mx-auto px-4 pb-12 pt-16">
           <div className="z-10">
             <QuickPlannerForm setItinerary={setItinerary} />
@@ -40,6 +39,7 @@ export default function Home() {
             </div>
 
             <Itinerary />
+            <Bookings />
             <Extras />
           </div>
         </div>
