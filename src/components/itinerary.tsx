@@ -99,7 +99,14 @@ export default function Itinerary() {
 
                 <div className="mt-4 flex flex-wrap gap-2">
                   <button className="rounded-full px-3 py-2 text-xs font-medium bg-secondary/70 hover:brightness-105 transition">Book Hotel</button>
-                  <button className="rounded-full px-3 py-2 text-xs font-medium bg-secondary/70 hover:brightness-105 transition">View Map</button>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(d.destination)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block rounded-full px-3 py-2 text-xs font-medium bg-secondary/70 hover:brightness-105 transition"
+                  >
+                    View Map
+                  </a>
                   <button className="rounded-full px-3 py-2 text-xs font-medium bg-secondary/70 hover:brightness-105 transition">Optimize Budget</button>
                 </div>
               </div>
