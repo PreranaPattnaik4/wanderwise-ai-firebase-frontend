@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -66,13 +67,13 @@ export default function SideAssistant() {
         <SheetTrigger asChild>
           <Button
             className="fixed bottom-10 right-10 h-16 w-16 rounded-full shadow-lg transition-transform hover:scale-110 
-                       z-50 bg-gradient-to-tr from-sky-500 to-violet-500 text-white"
+                       z-50 bg-primary text-primary-foreground"
             size="icon"
             aria-label="AI Assistant"
           >
             <div className="relative">
-              <Bot className="h-8 w-8 drop-shadow-[0_0_12px_rgba(56,189,248,0.8)]" />
-              <span className="absolute inset-0 rounded-full animate-[pulse_2s_ease-in-out_infinite] bg-sky-400/20 blur-md" />
+              <Bot className="h-8 w-8 drop-shadow-[0_0_12px_rgba(255,255,255,0.5)]" />
+              <span className="absolute inset-0 rounded-full animate-[pulse_2s_ease-in-out_infinite] bg-white/20 blur-md" />
             </div>
           </Button>
         </SheetTrigger>
@@ -80,7 +81,7 @@ export default function SideAssistant() {
         {/* Transparent glass popup */}
         <SheetContent
           className="flex flex-col border-l border-white/10 
-                     bg-transparent backdrop-blur-xl 
+                     bg-white/5 backdrop-blur-3xl
                      shadow-[0_8px_32px_0_rgba(31,38,135,0.12)] 
                      text-white"
           style={{
