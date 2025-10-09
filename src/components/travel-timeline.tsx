@@ -3,6 +3,8 @@
 
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { Button } from "./ui/button";
+import { ArrowRight } from "lucide-react";
 
 interface Node {
   phase: string; // e.g., Day 1
@@ -26,7 +28,10 @@ export default function TravelTimeline() {
       duration: 2000,
      });
     setTimeout(() => {
-      router.push('/itinerary');
+      const itineraryElement = document.getElementById('itinerary-section');
+      if (itineraryElement) {
+        itineraryElement.scrollIntoView({ behavior: 'smooth' });
+      }
     }, 1000);
   };
 
@@ -71,13 +76,14 @@ export default function TravelTimeline() {
       </div>
 
       <div className="mt-8 flex justify-center">
-        <button
+        <Button
           onClick={finalize}
-          className="relative inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-background bg-foreground shadow-lg hover:bg-foreground/90 transition active:scale-95"
+          size="lg"
+          className="rounded-full shadow-lg transition-transform active:scale-95"
         >
-          Finalize Plan ✨
-          <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
+          Finalize Plan
+          <ArrowRight className="ml-2 h-4 w-4" />
+        </Button>
       </div>
     </section>
   );

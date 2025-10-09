@@ -330,7 +330,8 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
             <Button
               onClick={parseQuery}
               disabled={isLoading}
-              className="rounded-full px-6 transition-transform hover:scale-105"
+              className="rounded-full shadow-lg transition-transform active:scale-95 bg-primary text-primary-foreground hover:bg-primary/90"
+              size="lg"
             >
               {isLoading ? (
                 <>
