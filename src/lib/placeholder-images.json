@@ -95,6 +95,18 @@
       "description": "California Coast",
       "imageUrl": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400&auto=format&fit=crop",
       "imageHint": "california coast"
+    },
+    {
+      "id": "beach-walk-activity",
+      "description": "Person walking on a beach at sunset",
+      "imageUrl": "https://picsum.photos/seed/beachwalk/128/128",
+      "imageHint": "beach sunset"
+    },
+    {
+      "id": "cafe-activity",
+      "description": "A cozy cafe with a cup of coffee",
+      "imageUrl": "https://picsum.photos/seed/cafevisit/128/128",
+      "imageHint": "cafe coffee"
     }
   ]
 }
