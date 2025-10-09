@@ -14,10 +14,10 @@ import { useState } from "react";
 import { SignInModal } from "../sign-in-modal";
 
 const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#itinerary", label: "Itinerary" },
-  { href: "#bookings", label: "Bookings" },
-  { href: "#profile", label: "Profile" },
+  { href: "/", label: "Home" },
+  { href: "/#itinerary", label: "Itinerary" },
+  { href: "/#bookings", label: "Bookings" },
+  { href: "/profile", label: "Profile" },
 ];
 
 export default function Navbar() {
@@ -43,6 +43,9 @@ export default function Navbar() {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" forceMount>
+            <DropdownMenuItem onClick={() => window.location.href = '/profile'}>
+              Profile
+            </DropdownMenuItem>
             <DropdownMenuItem onClick={signOut}>
               Sign Out
             </DropdownMenuItem>

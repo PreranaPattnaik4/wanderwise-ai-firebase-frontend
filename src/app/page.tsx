@@ -9,7 +9,6 @@ import SideAssistant from '@/components/side-assistant';
 import { GeneratePersonalizedItineraryOutput } from '@/ai/flows/generate-personalized-itinerary';
 import ItineraryPreview from '@/components/itinerary-preview';
 import PackingList from '@/components/packing-list';
-import ProfileSnapshot from '@/components/profile-snapshot';
 import TravelTimeline from '@/components/travel-timeline';
 import Bookings from '@/components/bookings';
 import Extras from '@/components/extras';
@@ -23,8 +22,8 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <div id="onboarding" className="container mx-auto px-4 pb-12">
-          <div className="relative z-10">
+        <div id="onboarding" className="container mx-auto px-4 pb-12 pt-12">
+          <div className="z-10">
             <QuickPlannerForm setItinerary={setItinerary} />
           </div>
           
@@ -38,13 +37,8 @@ export default function Home() {
               <ItineraryPreview itinerary="" />
             )}
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              <div className="lg:col-span-1">
-                <ProfileSnapshot />
-              </div>
-              <div className="lg:col-span-2">
-                <TravelTimeline />
-              </div>
+            <div className="lg:col-span-2">
+              <TravelTimeline />
             </div>
 
             <Bookings />
