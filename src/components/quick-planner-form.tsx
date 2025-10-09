@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -106,7 +107,7 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
   return (
     <Card className="w-full max-w-5xl mx-auto shadow-xl rounded-2xl border-none bg-white/70 backdrop-blur-sm">
       <CardHeader>
-        <CardTitle className="font-headline text-3xl font-bold">Tell us about your trip</CardTitle>
+        <CardTitle className="font-headline text-2xl font-bold">Tell us about your trip</CardTitle>
       </CardHeader>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -299,3 +300,5 @@ export default function QuickPlannerForm({ setItinerary }: QuickPlannerFormProps
     </Card>
   );
 }
+
+    
