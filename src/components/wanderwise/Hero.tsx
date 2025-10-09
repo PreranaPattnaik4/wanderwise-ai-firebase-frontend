@@ -21,7 +21,7 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative h-[500px] w-full flex items-center justify-center text-center text-white">
+    <section className="relative h-[70vh] w-full flex items-center justify-start text-left text-white">
       <Image
         src={heroImage.imageUrl}
         alt={heroImage.description}
@@ -30,8 +30,8 @@ export default function Hero() {
         priority
         data-ai-hint={heroImage.imageHint}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-white via-white/30 to-transparent" />
-      <div className="relative z-10 flex flex-col items-center justify-center p-4">
+      <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
+      <div className="relative z-10 flex flex-col items-start p-4 md:p-12 lg:p-24">
           <h1 className="text-4xl md:text-6xl font-headline font-bold text-gray-900 mb-4">
             Plan Your Perfect <br/> Trip with AI Assistance.
           </h1>
@@ -40,7 +40,7 @@ export default function Hero() {
             With Google’s Agentic AI and Gemini, WanderWise transforms
             aspirations into unforgettable adventures.
           </p>
-          <Button onClick={handleScroll} className="rounded-full bg-[#A4BFB2] hover:bg-[#A4BFB2]/90 text-black" size="lg">
+          <Button onClick={handleScroll} className="rounded-full bg-gradient-to-r from-[#A4BFB2] to-[#D4D3BC] hover:brightness-105 text-black shadow-lg transition-transform active:scale-95" size="lg">
             Start Planning
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
