@@ -111,7 +111,7 @@ export default function Bookings() {
   const waterSportsImage = PlaceHolderImages.find(p => p.id === 'water-sports-pack');
 
   return (
-    <section className="container py-10 sm:py-14" id="bookings">
+    <section className="container py-10 sm:py-14 scroll-mt-20" id="bookings">
       <h2 className="text-2xl sm:text-3xl font-bold mb-4 font-headline">Bookings</h2>
       <p className="text-sm text-foreground/70 mb-3">Trip: Bengaluru ↔ Goa • 5 days</p>
 

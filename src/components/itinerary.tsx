@@ -61,7 +61,7 @@ export default function Itinerary() {
   const percent = budget.percentUsed;
 
   return (
-    <section className="container py-10 sm:py-14" id="itinerary">
+    <section className="container py-10 sm:py-14 scroll-mt-20" id="itinerary">
       <div className="flex items-center justify-between gap-4 mb-4">
         <h2 className="text-2xl sm:text-3xl font-bold font-headline">Your Itinerary</h2>
         <div className="hidden sm:flex items-center gap-2 text-sm">

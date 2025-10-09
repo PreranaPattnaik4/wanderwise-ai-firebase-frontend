@@ -77,7 +77,7 @@ function Profile() {
   const recent = trips[0];
 
   return (
-    <section className="container py-10 sm:py-14" id="profile">
+    <section className="container py-10 sm:py-14 scroll-mt-20" id="profile">
       <div className="relative mb-8 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-sky-500/10 via-violet-500/10 to-emerald-400/10">
         <div className="absolute inset-0 opacity-60 [mask-image:radial-gradient(500px_200px_at_top,black,transparent)]">
           <div className="absolute -top-20 -left-28 h-64 w-64 rounded-full bg-sky-500/30 blur-3xl" />

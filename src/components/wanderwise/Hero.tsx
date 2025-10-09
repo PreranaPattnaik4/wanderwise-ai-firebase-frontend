@@ -21,7 +21,7 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative h-[70vh] w-full flex items-center justify-start text-left">
+    <section className="relative h-[70vh] w-full flex items-center justify-start text-left scroll-mt-20" id="home">
       <Image
         src={heroImage.imageUrl}
         alt={heroImage.description}

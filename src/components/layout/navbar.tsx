@@ -14,7 +14,7 @@ import { useState } from "react";
 import { SignInModal } from "../sign-in-modal";
 
 const navLinks = [
-  { href: "/", label: "Home" },
+  { href: "/#home", label: "Home" },
   { href: "/itinerary", label: "Itinerary" },
   { href: "/#bookings", label: "Bookings" },
   { href: "/profile", label: "Profile" },
@@ -82,7 +82,7 @@ export default function Navbar() {
   );
 
   return (
-    <header id="home" className="sticky top-0 z-40 w-full border-b bg-white/80 backdrop-blur-sm">
+    <header className="sticky top-0 z-40 w-full border-b bg-white/80 backdrop-blur-sm">
       <div className="container flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <WanderwiseLogo className="h-6 w-auto" />
