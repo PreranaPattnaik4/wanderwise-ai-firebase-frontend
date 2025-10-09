@@ -12,6 +12,7 @@ import TravelTimeline from '@/components/travel-timeline';
 import Bookings from '@/components/bookings';
 import Extras from '@/components/extras';
 import Footer from '@/components/layout/footer';
+import Itinerary from '@/components/itinerary';
 
 export default function Home() {
   const [itinerary, setItinerary] = useState<GeneratePersonalizedItineraryOutput | null>(null);
@@ -37,6 +38,7 @@ export default function Home() {
               <TravelTimeline />
             </div>
 
+            <Itinerary />
             <Bookings />
             <Extras />
           </div>

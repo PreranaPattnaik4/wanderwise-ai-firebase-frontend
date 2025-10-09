@@ -1,9 +1,6 @@
 
 "use client";
 
-import Navbar from "@/components/layout/navbar";
-import Footer from "@/components/layout/footer";
-
 type Activity = { name: string; cost: number; duration: string };
 interface DayPlan {
   day: number;
@@ -56,7 +53,7 @@ const sample: DayPlan[] = [
   },
 ];
 
-function Itinerary() {
+export default function Itinerary() {
   const budget = { total: 2000, percentUsed: 5 };
   const spent = sample
     .flatMap((d) => d.activities)
@@ -133,16 +130,4 @@ function Itinerary() {
       </div>
     </section>
   );
-}
-
-export default function ItineraryPage() {
-    return (
-        <div className="flex min-h-screen flex-col bg-background">
-            <Navbar />
-            <main className="flex-1">
-                <Itinerary />
-            </main>
-            <Footer />
-        </div>
-    )
 }
