@@ -5,6 +5,7 @@ import { AuthProvider } from '@/components/auth-provider';
 import { Toaster as OldToaster } from '@/components/ui/toaster';
 import { Toaster } from 'sonner';
 import { cn } from '@/lib/utils';
+import BackToTopButton from '@/components/back-to-top-button';
 
 export const metadata: Metadata = {
   title: 'WanderWise AI',
@@ -28,6 +29,7 @@ export default function RootLayout({
           {children}
           <OldToaster />
           <Toaster richColors />
+          <BackToTopButton />
         </AuthProvider>
       </body>
     </html>
