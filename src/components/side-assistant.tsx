@@ -60,7 +60,7 @@ export default function SideAssistant() {
         </SheetTrigger>
 
         <SheetContent
-          className="flex flex-col bg-white/30 backdrop-blur-lg border-white/20"
+          className="flex flex-col bg-white/50 backdrop-blur-lg border-white/30"
         >
           <SheetHeader className="text-center">
             <SheetTitle className="font-headline text-lg">
