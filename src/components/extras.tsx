@@ -1,61 +1,58 @@
-import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Calendar, CloudSun, Gift } from "lucide-react";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { Zap, Languages, Shield, Camera, Leaf, Sun, Calendar } from "lucide-react";
 
-const eventsImage = PlaceHolderImages.find(img => img.id === 'local-events');
-const weatherImage = PlaceHolderImages.find(img => img.id === 'weather-forecast');
-const offersImage = PlaceHolderImages.find(img => img.id === 'special-offers');
-
+const features = [
+  {
+    icon: Zap,
+    title: "Dynamic Updates",
+    description: "Real-time adjustments for flight delays, weather changes, and local events.",
+  },
+  {
+    icon: Languages,
+    title: "Language Assistance",
+    description: "Instant translation, etiquette tips, and voice-activated conversations.",
+  },
+  {
+    icon: Shield,
+    title: "Travel Safety & Alerts",
+    description: "Personal risk monitoring, emergency assistance, and crowd avoidance.",
+  },
+  {
+    icon: Camera,
+    title: "AR/VR Experience",
+    description: "AR guides for landmarks and virtual previews of hotels and attractions.",
+  },
+  {
+    icon: Leaf,
+    title: "Sustainable Travel",
+    description: "Eco-friendly suggestions for accommodations, transport, and tours.",
+  },
+  {
+    icon: Sun,
+    title: "Smarter Sightseeing",
+    description: "AI predicts peak times at popular spots to help you avoid long queues.",
+  }
+];
 
 export default function Extras() {
   return (
-    <section>
-        <h2 className="text-3xl font-headline font-bold text-center mb-8">Travel Extras</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-            <Card className="shadow-md rounded-2xl overflow-hidden">
-                {eventsImage && (
-                    <div className="relative h-32 w-full">
-                        <Image src={eventsImage.imageUrl} alt="Local Events" fill className="object-cover" data-ai-hint={eventsImage.imageHint} />
-                    </div>
-                )}
-                <CardHeader className="flex flex-row items-center gap-3">
-                    <Calendar className="w-6 h-6 text-accent" />
-                    <CardTitle className="text-lg">Local Events</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-sm text-muted-foreground">Paris Fashion Week starts soon!</p>
-                </CardContent>
-            </Card>
-            <Card className="shadow-md rounded-2xl overflow-hidden">
-                {weatherImage && (
-                    <div className="relative h-32 w-full">
-                        <Image src={weatherImage.imageUrl} alt="Weather" fill className="object-cover" data-ai-hint={weatherImage.imageHint} />
-                    </div>
-                )}
-                <CardHeader className="flex flex-row items-center gap-3">
-                    <CloudSun className="w-6 h-6 text-accent" />
-                    <CardTitle className="text-lg">Weather</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-sm text-muted-foreground">22°C, Sunny in Paris.</p>
-                </CardContent>
-            </Card>
-            <Card className="shadow-md rounded-2xl overflow-hidden">
-                 {offersImage && (
-                    <div className="relative h-32 w-full">
-                        <Image src={offersImage.imageUrl} alt="Offers" fill className="object-cover" data-ai-hint={offersImage.imageHint} />
-                    </div>
-                )}
-                <CardHeader className="flex flex-row items-center gap-3">
-                    <Gift className="w-6 h-6 text-accent" />
-                    <CardTitle className="text-lg">Special Offers</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-sm text-muted-foreground">15% off at select restaurants.</p>
-                </CardContent>
-            </Card>
-        </div>
+    <section className="container py-10 sm:py-14 scroll-mt-20" id="extras">
+      <h2 className="text-3xl font-headline font-bold text-center mb-8">Your Smart Travel Companion</h2>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {features.map((feature, index) => (
+          <Card key={index} className="shadow-md rounded-2xl overflow-hidden bg-card/70 border-white/15 hover:border-accent/60 hover:shadow-lg transition-all duration-300">
+            <CardHeader className="flex flex-row items-center gap-4">
+              <div className="p-3 bg-accent/20 rounded-full">
+                <feature.icon className="w-6 h-6 text-accent" />
+              </div>
+              <CardTitle className="text-lg font-semibold">{feature.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">{feature.description}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
     </section>
   );
 }
