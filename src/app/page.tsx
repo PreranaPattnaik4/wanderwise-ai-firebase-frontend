@@ -13,6 +13,7 @@ import Bookings from '@/components/bookings';
 import Extras from '@/components/extras';
 import Footer from '@/components/layout/footer';
 import Itinerary from '@/components/itinerary';
+import InspirationCarousel from '@/components/inspiration-carousel';
 
 export default function Home() {
   const [itinerary, setItinerary] = useState<GeneratePersonalizedItineraryOutput | null>(null);
@@ -41,6 +42,7 @@ export default function Home() {
             <Itinerary />
             <Bookings />
             <Extras />
+            <InspirationCarousel />
           </div>
         </div>
       </main>

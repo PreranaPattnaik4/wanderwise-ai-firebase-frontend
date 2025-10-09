@@ -77,6 +77,24 @@
       "description": "Hotel by the water",
       "imageUrl": "https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=800&auto=format&fit=crop",
       "imageHint": "hotel water"
+    },
+    {
+      "id": "inspiration-goa",
+      "description": "Goa Beaches",
+      "imageUrl": "https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=1400&auto=format&fit=crop",
+      "imageHint": "goa beach"
+    },
+    {
+      "id": "inspiration-paris",
+      "description": "Paris Eiffel Tower",
+      "imageUrl": "https://images.unsplash.com/photo-1508051123996-69f8caf4891e?q=80&w=1400&auto=format&fit=crop",
+      "imageHint": "paris eiffel tower"
+    },
+    {
+      "id": "inspiration-california",
+      "description": "California Coast",
+      "imageUrl": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400&auto=format&fit=crop",
+      "imageHint": "california coast"
     }
   ]
 }
