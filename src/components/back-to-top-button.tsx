@@ -39,10 +39,11 @@ export default function BackToTopButton() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.2 }}
-          className="fixed bottom-20 right-5 z-50"
+          className="fixed bottom-5 right-20 z-50"
         >
           <Button
             onClick={scrollToTop}
+            variant="ghost"
             size="icon"
             className="rounded-full shadow-lg"
             aria-label="Back to top"
