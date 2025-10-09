@@ -16,6 +16,7 @@ import { SignInModal } from "../sign-in-modal";
 const navLinks = [
   { href: "/#home", label: "Home" },
   { href: "/itinerary", label: "Itinerary" },
+  { href: "/guides", label: "Guides" },
   { href: "/#bookings", label: "Bookings" },
   { href: "/profile", label: "Profile" },
 ];
