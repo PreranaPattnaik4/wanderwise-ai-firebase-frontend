@@ -69,10 +69,10 @@ export default function SideAssistant() {
             <button
               onClick={() => setOpen(true)}
               aria-label="Open AI Assistant"
-              className="fixed bottom-6 right-6 z-50 size-14 rounded-full grid place-items-center text-primary-foreground shadow-lg bg-primary hover:bg-primary/90 active:scale-95 transition-transform"
+              className="fixed bottom-5 right-5 z-50 size-12 rounded-full grid place-items-center text-primary-foreground shadow-lg bg-primary hover:bg-primary/90 active:scale-95 transition-transform"
             >
               <div className="relative">
-                <Bot className="h-7 w-7 drop-shadow-[0_0_12px_rgba(255,255,255,0.5)]" />
+                <Bot className="h-6 w-6 drop-shadow-[0_0_12px_rgba(255,255,255,0.5)]" />
                 <span className="absolute inset-0 rounded-full animate-[pulse_2s_ease-in-out_infinite] bg-white/20 blur-md" />
               </div>
             </button>
@@ -94,13 +94,13 @@ export default function SideAssistant() {
               onClick={() => setOpen(false)}
             />
             <motion.div
-              className="fixed right-0 top-0 bottom-0 z-50 w-full max-w-md bg-background/80 text-foreground border-l border-border/50 shadow-2xl flex flex-col backdrop-blur-xl"
+              className="fixed right-0 top-0 bottom-0 z-50 w-full max-w-md bg-white/10 text-foreground border-l border-white/20 shadow-2xl flex flex-col backdrop-blur-2xl"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: 'spring', stiffness: 260, damping: 30 }}
             >
-              <header className="px-4 py-3 border-b border-border/50 flex items-center justify-between">
+              <header className="px-4 py-3 border-b border-white/10 flex items-center justify-between">
                 <div className="font-headline text-lg text-primary">WanderWise AI Assistant</div>
                 <button className="size-9 grid place-items-center rounded-full hover:bg-white/5" onClick={() => setOpen(false)} aria-label="Close">
                   <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 18L18 6M6 6l12 12"/></svg>
@@ -128,7 +128,7 @@ export default function SideAssistant() {
                 <div ref={endRef} />
               </div>
 
-              <div className="p-3 border-t border-border/50 flex items-center gap-2">
+              <div className="p-3 border-t border-white/10 flex items-center gap-2">
                 <input
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
