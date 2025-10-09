@@ -2,10 +2,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Bot, Loader2, Send, Volume2, Waves } from "lucide-react";
+import { Bot, Loader2, Send } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { answerTravelQuestion } from "@/ai/flows/answer-travel-questions-chatbot";
-import { textToSpeech } from "@/ai/flows/text-to-speech";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 
@@ -27,11 +26,6 @@ export default function SideAssistant() {
     },
   ]);
   const endRef = useRef<HTMLDivElement | null>(null);
-
-  // TTS state
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [ttsLoading, setTtsLoading] = useState<string | null>(null);
-  const [playingId, setPlayingId] = useState<string | null>(null);
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -66,37 +60,6 @@ export default function SideAssistant() {
       setIsLoading(false);
     }
   };
-
-  const handlePlayAudio = async (msg: Msg) => {
-    if (audioRef.current && playingId === msg.id) {
-        audioRef.current.pause();
-        audioRef.current.currentTime = 0;
-        setPlayingId(null);
-        return;
-    }
-    
-    setTtsLoading(msg.id);
-    try {
-        const { media } = await textToSpeech(msg.content);
-        
-        if (audioRef.current) {
-            audioRef.current.pause();
-        }
-
-        const newAudio = new Audio(media);
-        audioRef.current = newAudio;
-        
-        newAudio.onended = () => setPlayingId(null);
-        newAudio.play();
-        setPlayingId(msg.id);
-        
-    } catch (err) {
-        console.error("Could not play audio", err);
-    } finally {
-        setTtsLoading(null);
-    }
-  }
-
 
   return (
     <>
@@ -148,15 +111,7 @@ export default function SideAssistant() {
                 {msgs.map((m) => (
                   <div key={m.id} className={`flex items-end gap-2 ${m.role === "user" ? "justify-end" : "justify-start"}`}>
                     {m.role === 'assistant' && (
-                        <button onClick={() => handlePlayAudio(m)} className="shrink-0 size-7 grid place-items-center rounded-full text-foreground/70 hover:bg-white/10" aria-label="Play audio">
-                            {ttsLoading === m.id ? (
-                                <Loader2 className="size-4 animate-spin" />
-                            ) : playingId === m.id ? (
-                                <Waves className="size-4 text-primary" />
-                            ) : (
-                                <Volume2 className="size-4" />
-                            )}
-                        </button>
+                      <Bot className="shrink-0 size-7 p-1.5 rounded-full bg-secondary text-foreground/70" />
                     )}
                     <div className={
                         (m.role === "user" ? "bg-primary/20 text-primary-foreground" : "bg-secondary/80 text-secondary-foreground") + 
