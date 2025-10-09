@@ -1,6 +1,7 @@
 
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { Button } from "./ui/button";
 
 interface FlightOption {
   id: string;
@@ -42,9 +43,9 @@ function FlightCard(f: FlightOption) {
             <div className="font-medium">{f.price}</div>
           </div>
         </div>
-        <button className="mt-4 w-full rounded-full px-3 py-2 text-xs font-medium text-white bg-gradient-to-r from-primary to-accent hover:brightness-110 active:scale-95 transition">
+        <Button className="mt-4 w-full rounded-full px-3 py-2 text-xs font-medium transition-transform active:scale-95">
           Book Now
-        </button>
+        </Button>
       </div>
     </div>
   );
@@ -70,9 +71,9 @@ function BookingCard({ image, name, price, rating, imageHint }: BookingCardProps
           <span className="text-xs text-foreground/70">⭐ {rating.toFixed(1)}</span>
         </div>
         <div className="mt-1 text-sm">{price}</div>
-        <button className="mt-3 w-full rounded-full px-3 py-2 text-xs font-medium text-white bg-gradient-to-r from-primary to-accent hover:brightness-110 active:scale-95 transition">
+        <Button className="mt-3 w-full rounded-full px-3 py-2 text-xs font-medium transition-transform active:scale-95">
           Book Now
-        </button>
+        </Button>
       </div>
     </div>
   );
