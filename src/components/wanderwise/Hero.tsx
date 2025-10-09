@@ -41,9 +41,9 @@ export default function Hero() {
               With Google’s Agentic AI and Gemini, WanderWise transforms
               aspirations into unforgettable adventures.
             </p>
-            <Button onClick={handleScroll} size="sm" className="rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg transition-transform active:scale-95">
+            <Button onClick={handleScroll} size="default" className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg transition-transform active:scale-95 text-sm">
               Start Planning
-              <ArrowRight className="ml-1 h-4 w-4" />
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
       </div>
