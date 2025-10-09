@@ -69,10 +69,10 @@ export default function SideAssistant() {
             <button
               onClick={() => setOpen(true)}
               aria-label="Open AI Assistant"
-              className="fixed bottom-5 right-16 z-50 size-12 rounded-full grid place-items-center text-primary-foreground shadow-lg bg-primary hover:bg-primary/90 active:scale-95 transition-transform"
+              className="fixed bottom-5 right-16 z-50 size-14 rounded-full grid place-items-center text-primary-foreground shadow-lg bg-primary hover:bg-primary/90 active:scale-95 transition-transform"
             >
               <div className="relative">
-                <Bot className="h-6 w-6 drop-shadow-[0_0_12px_rgba(255,255,255,0.5)]" />
+                <Bot className="h-7 w-7 drop-shadow-[0_0_12px_rgba(255,255,255,0.5)]" />
                 <span className="absolute inset-0 rounded-full animate-[pulse_2s_ease-in-out_infinite] bg-white/20 blur-md" />
               </div>
             </button>
