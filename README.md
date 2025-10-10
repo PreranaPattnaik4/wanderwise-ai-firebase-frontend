@@ -26,17 +26,18 @@ The app uses Gemini Pro for its agentic conversational logic, itinerary generati
 
 Firebase AI Studio features such as real-time AI-assisted editing, GitHub source control, and instant deployment helped accelerate development and ensure a smooth workflow for the WanderWise AI frontend.
 
-Tech Stack
+Tech Stack  
 
-Frontend Framework: Next.js
-Language: TypeScript
-AI Integration: Gemini Pro via Firebase AI Studio
-AI Framework: Genkit (Google’s AI agent framework)
-Backend: Firebase Functions and Firestore
-Hosting: Firebase App Hosting (Firebase Hosting)
-Authentication: Firebase Authentication
-Version Control: Git and GitHub
-Design: Tailwind CSS with WanderWise green and beige theme
+Frontend Framework: Next.js  
+Language: TypeScript  
+AI Integration: Gemini Pro via Firebase AI Studio  
+AI Framework: Genkit (Google’s AI agent framework)  
+Backend: Firebase Functions and Firestore  
+Hosting: Firebase App Hosting (Firebase Hosting)  
+Authentication: Firebase Authentication  
+Version Control: Git and GitHub  
+Design: Tailwind CSS with WanderWise green and beige theme  
+
 
 Folder Structure
 wanderwise-ai-firebase-frontend/  
