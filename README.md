@@ -1,4 +1,4 @@
-# WanderWise AI – Firebase Frontend
+WanderWise AI – Firebase Frontend
 
 WanderWise AI is an Agentic AI Travel Assistant built using Firebase AI Studio, Gemini Pro, and Next.js.  
 It helps users plan personalized trips, create itineraries, access real-time travel insights, and interact through a multilingual voice-based interface.
@@ -26,7 +26,7 @@ The app uses Gemini Pro for its agentic conversational logic, itinerary generati
 
 Firebase AI Studio features such as real-time AI-assisted editing, GitHub source control, and instant deployment helped accelerate development and ensure a smooth workflow for the WanderWise AI frontend.
 
-ech Stack
+Tech Stack
 
 Frontend Framework: Next.js
 Language: TypeScript
@@ -56,26 +56,6 @@ wanderwise-ai-firebase-frontend/
 ├── .gitignore – Git ignore rules  
 ├── LICENSE – MIT License  
 └── README.md – Project documentation
-
-Setup Instructions
-1. Clone the repository  
-   git clone https://github.com/PreranaPattnaik4/wanderwise-ai-firebase-frontend.git  
-2. Go to the project folder  
-   cd wanderwise-ai-firebase-frontend  
-3. Install dependencies  
-   npm install  
-4. Run the app locally  
-   npm run dev  
-
-The app will be available at http://localhost:3000  
-
-Contribution Guidelines
-1. Fork this repository  
-2. Create a new branch for your feature or fix  
-3. Commit your changes with clear messages  
-4. Push your branch and open a pull request  
-
-Contributions from students and open-source participants (GSSoC, SSoC, etc.) are welcome.
 
 License
 Licensed under the MIT License.
