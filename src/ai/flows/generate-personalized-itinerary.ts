@@ -38,27 +38,6 @@ export async function generatePersonalizedItinerary(
   return generatePersonalizedItineraryFlow(input);
 }
 
-const prompt = ai.definePrompt({
-  name: 'generatePersonalizedItineraryPrompt',
-  input: {schema: GeneratePersonalizedItineraryInputSchema},
-  output: {schema: GeneratePersonalizedItineraryOutputSchema},
-  prompt: `You are an AI travel expert specializing in creating personalized itineraries.
-
-  Based on the user's preferences and constraints, generate a detailed day-by-day itinerary including suggested activities, accommodations, and transportation options.
-
-  Destination: {{{destination}}}
-  Trip Type: {{{tripType}}}
-  Flight Options: {{{flightOptions}}}
-  Description: {{{description}}}
-  Budget: {{{budget}}}
-  Duration: {{{duration}}} days
-  Food Preferences: {{{foodPreferences}}}
-  Interests: {{{interests}}}
-  Language: {{{language}}}
-
-  Generate a comprehensive and engaging itinerary that caters to the user's specific needs and desires.`,
-});
-
 const generatePersonalizedItineraryFlow = ai.defineFlow(
   {
     name: 'generatePersonalizedItineraryFlow',
@@ -66,7 +45,39 @@ const generatePersonalizedItineraryFlow = ai.defineFlow(
     outputSchema: GeneratePersonalizedItineraryOutputSchema,
   },
   async input => {
-    const {output} = await prompt(input);
-    return output!;
+    const backendUrl = process.env.WANDERWISE_BACKEND_URL || 'http://127.0.0.1:8000';
+
+    // The user did not provide a source, so I'm using a placeholder.
+    // The user also did not specify what to use for budget type, so I am using tripType.
+    const response = await fetch(`${backendUrl}/itinerary`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            source: 'delhi', // Placeholder as per user's example, not in original input
+            destination: input.destination,
+            days: parseInt(input.duration) || 3,
+            budget: input.tripType.split(',')[0].toLowerCase().trim(),
+        }),
+    });
+
+    if (!response.ok) {
+        throw new Error(`Backend request failed: ${response.statusText}`);
+    }
+
+    const itineraryData = await response.json();
+
+    // Convert JSON object to a nicely formatted string
+    let formattedItinerary = `Trip to ${itineraryData.destination} for ${itineraryData.days} days.\n\n`;
+    for (const day in itineraryData.itinerary) {
+        formattedItinerary += `${day}:\n`;
+        itineraryData.itinerary[day].forEach((activity: string) => {
+            formattedItinerary += `- ${activity}\n`;
+        });
+        formattedItinerary += '\n';
+    }
+
+    return { itinerary: formattedItinerary };
   }
 );
