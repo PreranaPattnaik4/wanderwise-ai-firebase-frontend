@@ -63,7 +63,8 @@ const generatePersonalizedItineraryFlow = ai.defineFlow(
     });
 
     if (!response.ok) {
-        throw new Error(`Backend request failed: ${response.statusText}`);
+        const errorText = await response.text();
+        throw new Error(`Backend request failed: ${response.status} ${response.statusText} - ${errorText}`);
     }
 
     const itineraryData = await response.json();
