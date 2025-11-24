@@ -64,10 +64,13 @@ const generatePersonalizedItineraryFlow = ai.defineFlow(
 
     if (!response.ok) {
         const errorText = await response.text();
+        console.error('Backend Error:', errorText);
         throw new Error(`Backend request failed: ${response.status} ${response.statusText} - ${errorText}`);
     }
 
     const itineraryData = await response.json();
+    console.log('Received from backend:', JSON.stringify(itineraryData, null, 2));
+
 
     // Convert JSON object to a nicely formatted string
     let formattedItinerary = `Trip to ${itineraryData.destination} for ${itineraryData.days} days.\n\n`;
