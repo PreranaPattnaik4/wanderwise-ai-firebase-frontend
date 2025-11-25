@@ -26,6 +26,30 @@ const GeneratePersonalizedItineraryInputSchema = z.object({
 
 export type GeneratePersonalizedItineraryInput = z.infer<typeof GeneratePersonalizedItineraryInputSchema>;
 
+const ItineraryDaySchema = z.array(z.string().describe("A list of activities for the day."));
+
+const ItinerarySchema = z.object({
+  "Day 1": ItineraryDaySchema,
+  "Day 2": ItineraryDaySchema.optional(),
+  "Day 3": ItineraryDaySchema.optional(),
+  "Day 4": ItineraryDaySchema.optional(),
+  "Day 5": ItineraryDaySchema.optional(),
+  "Day 6": ItineraryDaySchema.optional(),
+  "Day 7": ItineraryDaySchema.optional(),
+  "Day 8": ItineraryDaySchema.optional(),
+  "Day 9": ItineraryDaySchema.optional(),
+  "Day 10": ItineraryDaySchema.optional(),
+}).catchall(ItineraryDaySchema);
+
+
+const BackendResponseSchema = z.object({
+  days: z.number(),
+  destination: z.string(),
+  itinerary: ItinerarySchema,
+  source: z.string(),
+});
+
+
 const GeneratePersonalizedItineraryOutputSchema = z.object({
   itinerary: z.string().describe('A detailed day-by-day itinerary with suggested activities, accommodations, and transportation options.'),
 });
@@ -68,20 +92,23 @@ const generatePersonalizedItineraryFlow = ai.defineFlow(
         throw new Error(`Backend request failed: ${response.status} ${response.statusText} - ${errorText}`);
     }
 
-    const itineraryData = await response.json();
-    console.log('Received from backend:', JSON.stringify(itineraryData, null, 2));
+    const rawItineraryData = await response.json();
+    console.log('Received from backend:', JSON.stringify(rawItineraryData, null, 2));
 
+    const validatedData = BackendResponseSchema.parse(rawItineraryData);
 
-    // Convert JSON object to a nicely formatted string
-    let formattedItinerary = `Trip to ${itineraryData.destination} for ${itineraryData.days} days.\n\n`;
-    for (const day in itineraryData.itinerary) {
+    let formattedItinerary = `Trip to ${validatedData.destination} from ${validatedData.source} for ${validatedData.days} days.\n\n`;
+
+    Object.entries(validatedData.itinerary).forEach(([day, activities]) => {
+      if (activities) {
         formattedItinerary += `${day}:\n`;
-        itineraryData.itinerary[day].forEach((activity: string) => {
+        activities.forEach((activity: string) => {
             formattedItinerary += `- ${activity}\n`;
         });
         formattedItinerary += '\n';
-    }
+      }
+    });
 
-    return { itinerary: formattedItinerary };
+    return { itinerary: formattedItinerary.trim() };
   }
 );
