@@ -2,7 +2,7 @@
 
 WanderWise AI is a next-generation, AI-powered travel assistant designed to make trip planning seamless, intuitive, and personalized. Built on a powerful stack of Google technologies, including **Gemini Pro**, **Genkit**, **Firebase**, and **Next.js**, this application showcases the future of agentic AI by transforming user requests into fully-realized, dynamic travel itineraries.
 
-![WanderWise AI Screenshot](https://storage.googleapis.com/aistudio-hosting-project-images/b4c29ce2-b258-4581-893c-24f61f77d337.png)
+
 
 This project was developed and deployed entirely within **Firebase AI Studio**, demonstrating an accelerated, AI-assisted workflow from concept to production.
 
@@ -37,9 +37,12 @@ WanderWise AI is built on a modern, scalable, and AI-native technology stack, de
 
 ---
 
-## 📂 Project Structure
+## 📂 Project Structure & Reports
 
-The project follows a standard Next.js App Router structure, with clear separation of concerns.
+The project follows a standard Next.js App Router structure, with clear separation of concerns. For a detailed technical overview and a deep dive into the AI architecture, please see the reports below:
+
+*   **[Technical Project Report](./PROJECT_REPORT.md)**: A comprehensive overview of the project's architecture, technology stack, and implementation details.
+*   **[AI System Design Report](./AI_SYSTEM_DESIGN_REPORT.md)**: A deep dive into the dual-layer agentic architecture, Genkit flows, and the core AI reasoning loop.
 
 ```
 wanderwise-ai-firebase/
