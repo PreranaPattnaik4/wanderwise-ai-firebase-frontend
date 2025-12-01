@@ -12,7 +12,8 @@ This project was developed and deployed entirely within **Firebase AI Studio**, 
 
 ## 🚀 Key Features
 
-*   **Agentic Itinerary Generation**: Leverages Gemini Pro to understand complex user prompts and generate detailed, multi-day travel plans.
+*   **Dual-Layer Agentic Architecture**: A sophisticated system featuring a frontend agent (Genkit + Gemini Pro) for user interaction and a powerful backend multi-agent system (Google ADK + Gemini 2.5 Flash) for complex itinerary generation.
+*   **Complex Itinerary Generation**: Leverages the backend agentic system to understand complex user prompts and generate detailed, multi-day travel plans by orchestrating specialized agents for flights, stays, and activities.
 *   **Conversational AI Assistant**: An intuitive chat interface powered by multiple Genkit flows that can answer questions, provide recommendations, and modify plans on the fly.
 *   **Dynamic Backend Integration**: Connects to a FastAPI backend running on Google Cloud Run to fetch itinerary data, demonstrating a robust, decoupled architecture.
 *   **Voice-Enabled Input**: Supports voice-to-text for hands-free interaction with the planning form.
@@ -25,15 +26,14 @@ This project was developed and deployed entirely within **Firebase AI Studio**, 
 
 WanderWise AI is built on a modern, scalable, and AI-native technology stack, demonstrating a powerful synergy across the Google ecosystem.
 
-| Category          | Technology                                                                                                  | Role                                                                                                             |
-| ----------------- | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| **Frontend**      | [**Next.js**](https://nextjs.org/) (with App Router), [**React**](https://react.dev/), [**TypeScript**](https://www.typescriptlang.org/) | Provides a high-performance, server-first frontend with a rich, interactive user experience.                     |
-| **UI Components** | [**ShadCN/UI**](https://ui.shadcn.com/), [**Tailwind CSS**](https://tailwindcss.com/)                            | Delivers a beautiful, accessible, and consistent design system that is both professional and easy to maintain.   |
-| **AI Framework**  | [**Genkit**](https://firebase.google.com/docs/genkit)                                                         | Orchestrates the AI logic, defining flows, tools, and prompts to create a true agentic system.                   |
-| **AI Model**      | [**Gemini Pro**](https://deepmind.google/technologies/gemini/)                                                | The core intelligence, responsible for reasoning, planning, and generating human-like, context-aware responses. |
-| **Backend**       | [**FastAPI**](https://fastapi.tiangolo.com/) on [**Google Cloud Run**](https://cloud.google.com/run)           | A high-performance Python backend for serving core business logic, such as itinerary generation.               |
-| **Platform**      | [**Firebase AI Studio**](https://firebase.google.com/docs/aistudio)                                           | The integrated development environment used for AI-assisted coding, deployment, and hosting.                     |
-| **Services**      | [**Firebase Hosting**](https://firebase.google.com/docs/hosting), [**Firebase Auth**](https://firebase.google.com/docs/auth) | Provides fast, secure hosting for the web app and a complete authentication solution.                            |
+| Category                | Technology                                                                                                    | Role                                                                                                               |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Frontend**            | [**Next.js**](https://nextjs.org/) (App Router), [**React**](https://react.dev/), [**TypeScript**](https://www.typescriptlang.org/) | Provides a high-performance, server-first frontend with a rich, interactive user experience.                       |
+| **UI Components**       | [**ShadCN/UI**](https://ui.shadcn.com/), [**Tailwind CSS**](https://tailwindcss.com/)                              | Delivers a beautiful, accessible, and consistent design system that is both professional and easy to maintain.     |
+| **Frontend AI**         | [**Genkit**](https://firebase.google.com/docs/genkit), [**Gemini Pro**](https://deepmind.google/technologies/gemini/) | Orchestrates user-facing AI flows, manages intent routing, and handles conversational tasks.                       |
+| **Backend AI**          | [**Google ADK**](https://cloud.google.com/vertex-ai/docs/agents/adk-overview), [**Gemini 2.5 Flash**] | A multi-agent system that performs complex reasoning and planning for detailed itinerary generation.             |
+| **Backend Framework**   | [**FastAPI**](https://fastapi.tiangolo.com/) on [**Google Cloud Run**](https://cloud.google.com/run)             | A high-performance Python backend serving as the bridge between the frontend and the backend ADK system.           |
+| **Platform & Services** | [**Firebase AI Studio**](https://firebase.google.com/docs/aistudio), [**Firebase Hosting**](https://firebase.google.com/docs/hosting), [**Firebase Auth**](https://firebase.google.com/docs/auth) | Provides the IDE, deployment platform, global CDN, and a complete authentication solution.                         |
 
 ---
 
@@ -55,7 +55,8 @@ wanderwise-ai-firebase/
 │   └── lib/                 # Utility functions and shared logic
 ├── public/                  # Static assets (images, fonts)
 ├── .env                     # Environment variables (for backend URL)
-└── PROJECT_REPORT.md        # Detailed technical report for evaluation
+├── PROJECT_REPORT.md        # Detailed technical report for evaluation
+└── AI_SYSTEM_DESIGN_REPORT.md # Deep dive into the agentic architecture
 ```
 
 ---
