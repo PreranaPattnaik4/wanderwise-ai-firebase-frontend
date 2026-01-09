@@ -105,7 +105,7 @@ export default function Navbar() {
           <WanderwiseLogo className="h-6 w-auto" />
         </Link>
 
-        {isMobile ? (
+        {isMobile === undefined ? null : isMobile ? (
           <div className="flex items-center gap-2">
             {renderAuthButton()}
             <Sheet>
