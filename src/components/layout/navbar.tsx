@@ -1,6 +1,7 @@
 
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/components/auth-provider";
@@ -10,7 +11,6 @@ import { WanderwiseLogo } from "../icons";
 import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { useState } from "react";
 import { SignInModal } from "../sign-in-modal";
 import { useRouter } from "next/navigation";
 
@@ -28,6 +28,11 @@ export default function Navbar() {
   const isMobile = useIsMobile();
   const [activeLink, setActiveLink] = useState("Home");
   const [isSignInModalOpen, setSignInModalOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleProfileClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (!user) {
@@ -55,7 +60,7 @@ export default function Navbar() {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" forceMount>
-            <DropdownMenuItem onClick={() => window.location.href = '/profile'}>
+            <DropdownMenuItem onClick={() => router.push('/profile')}>
               Profile
             </DropdownMenuItem>
             <DropdownMenuItem onClick={signOut}>
@@ -98,6 +103,7 @@ export default function Navbar() {
     </nav>
   );
 
+  // Avoid hydration mismatch by rendering a consistent structure until mounted
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-white/80 backdrop-blur-sm">
       <div className="container flex h-20 items-center justify-between">
@@ -105,7 +111,11 @@ export default function Navbar() {
           <WanderwiseLogo className="h-6 w-auto" />
         </Link>
 
-        {isMobile === undefined ? null : isMobile ? (
+        {!mounted ? (
+          <div className="flex items-center gap-8">
+             <div className="w-20 h-8 bg-muted animate-pulse rounded-full" />
+          </div>
+        ) : isMobile ? (
           <div className="flex items-center gap-2">
             {renderAuthButton()}
             <Sheet>
