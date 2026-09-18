@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -104,7 +103,7 @@ export default function Navbar() {
     </nav>
   );
 
-  // If not mounted, return a shell to prevent hydration mismatch
+  // If not mounted, return a shell to prevent hydration mismatch from isMobile or extensions
   if (!mounted) {
     return (
       <header className="sticky top-0 z-40 w-full border-b bg-white/80 backdrop-blur-sm">

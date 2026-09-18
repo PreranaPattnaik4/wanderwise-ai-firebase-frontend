@@ -1,4 +1,3 @@
-
 # WanderWise AI: Your Agentic AI Travel Assistant
 
 WanderWise AI is a next-generation, AI-powered travel assistant designed to make trip planning seamless, intuitive, and personalized. Built on a powerful stack of Google technologies, including **Gemini Pro**, **Genkit**, **Firebase**, and **Next.js**, this application showcases the future of agentic AI by transforming user requests into fully-realized, dynamic travel itineraries.
@@ -17,9 +16,9 @@ This project was developed and deployed entirely within **Firebase AI Studio**, 
 
 ---
 
-## 📂 Project Structure & Reports
+## 📂 Project Documentation & Reports
 
-The project follows a standard Next.js App Router structure. For a detailed technical overview and a deep dive into the AI architecture, please see the reports below:
+The project is thoroughly documented. You can find detailed technical and architectural reports linked below:
 
 *   **[🌍 Technical Project Report](./PROJECT_REPORT.md)**: A comprehensive overview of the project's architecture, technology stack, and implementation details.
 *   **[🧠 AI System Design Report](./AI_SYSTEM_DESIGN_REPORT.md)**: A deep dive into the dual-layer agentic architecture, Genkit flows, and the core AI reasoning loop.
@@ -35,6 +34,13 @@ The project follows a standard Next.js App Router structure. For a detailed tech
 | **Frontend AI**         | **Genkit**, **Gemini Pro**                                                                                    | Orchestrates user-facing AI flows and intent routing.                                                              |
 | **Backend AI**          | **Google ADK**, **Gemini 2.5 Flash**                                                                          | Multi-agent system for complex reasoning and planning.                                                            |
 | **Platform & Services** | **Firebase AI Studio**, **Firebase Hosting**, **Firebase Auth**                                               | IDE, deployment platform, global CDN, and authentication.                                                          |
+
+---
+
+## 📝 Repository
+
+The source code for this project is available on GitHub:
+[https://github.com/PreranaPattnaik4/WanderWise-AI_Agentic-AI-Travel-Assistant.git](https://github.com/PreranaPattnaik4/WanderWise-AI_Agentic-AI-Travel-Assistant.git)
 
 ---
 
