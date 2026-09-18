@@ -30,6 +30,7 @@ export default function Navbar() {
   const [isSignInModalOpen, setSignInModalOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
+  // UseEffect to handle mounting state and prevent hydration errors
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -103,7 +104,22 @@ export default function Navbar() {
     </nav>
   );
 
-  // Avoid hydration mismatch by rendering a consistent structure until mounted
+  // If not mounted, return a shell to prevent hydration mismatch
+  if (!mounted) {
+    return (
+      <header className="sticky top-0 z-40 w-full border-b bg-white/80 backdrop-blur-sm">
+        <div className="container flex h-20 items-center justify-between">
+          <Link href="/" className="flex items-center gap-2">
+            <WanderwiseLogo className="h-6 w-auto" />
+          </Link>
+          <div className="flex items-center gap-8">
+             <div className="w-20 h-8 bg-muted animate-pulse rounded-full" />
+          </div>
+        </div>
+      </header>
+    );
+  }
+
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-white/80 backdrop-blur-sm">
       <div className="container flex h-20 items-center justify-between">
@@ -111,11 +127,7 @@ export default function Navbar() {
           <WanderwiseLogo className="h-6 w-auto" />
         </Link>
 
-        {!mounted ? (
-          <div className="flex items-center gap-8">
-             <div className="w-20 h-8 bg-muted animate-pulse rounded-full" />
-          </div>
-        ) : isMobile ? (
+        {isMobile ? (
           <div className="flex items-center gap-2">
             {renderAuthButton()}
             <Sheet>
